@@ -58,11 +58,20 @@ button:disabled{opacity:.55}
 .avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid #d34cff;background:#21142e}
 .profile-name{font-size:20px;font-weight:bold}
 .profile-handle{color:#c49ad9;font-size:13px;margin-top:5px}
-.avatar-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}
-.avatar-choice{background:#21172f;border:1px solid #68418a;border-radius:13px;padding:10px;color:white;text-align:center}
-.avatar-choice img{width:74px;height:74px;display:block;margin:0 auto 7px;border-radius:50%}
 .small-note{font-size:11px!important;color:#9f91ae!important}
 .form-label{display:block;color:#d8c2e9;font-size:12px;margin-top:10px}
+.studio{background:linear-gradient(145deg,#21152f,#11101d);border:1px solid #7944a1;border-radius:18px;padding:16px;margin:16px 0}
+.studio-preview{background:radial-gradient(circle at 50% 35%,#42215d,#151020 70%);border:1px solid #653d80;border-radius:18px;padding:18px;text-align:center;margin-bottom:15px}
+#studio-preview{width:180px;height:180px;max-width:100%;border-radius:50%;border:3px solid #d34cff;object-fit:cover;background:#21142e}
+.studio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.studio-grid>div{min-width:0}
+.studio-grid select{font-size:13px;padding:11px}
+.studio-heading{font-size:14px;color:#e6b4ff;margin:18px 0 7px}
+.avatar-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}
+.gallery-option{background:#21172f;border:1px solid #68418a;border-radius:12px;padding:9px 5px;color:white;font-size:11px}
+.gallery-option img{width:100%;max-width:76px;aspect-ratio:1;object-fit:cover;border-radius:50%;display:block;margin:0 auto 6px}
+.studio-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.studio-actions button{font-size:13px;padding:12px 7px}
 @media(max-width:560px){.auth-box,.panel{margin:16px 14px;padding:18px}.section{padding:18px}.profile-head{gap:12px}}
 </style>
 </head>
@@ -164,15 +173,125 @@ button:disabled{opacity:.55}
 </div>
 </div>
 <p id="profile-status">Your profile is saved to your account.</p>
+
 <label class="form-label" for="photo-file">Upload a photo from your phone</label>
 <input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp">
 <button class="full-button" onclick="uploadPhoto()">Use this photo</button>
-<h3>Or choose an avatar</h3>
-<div class="avatar-options">
-<button class="avatar-choice" onclick="chooseAvatar('3d')"><img id="avatar-3d" alt="3D inspired avatar">3D-inspired</button>
-<button class="avatar-choice" onclick="chooseAvatar('game')"><img id="avatar-game" alt="Gaming avatar">Gaming style</button>
+
+<div class="studio">
+<h3>🎨 Avatar Studio</h3>
+<p class="small-note">Create your own character and see your changes instantly.</p>
+
+<div class="studio-preview">
+<img id="studio-preview" alt="Your custom avatar">
+<p class="muted">LIVE CHARACTER PREVIEW</p>
 </div>
-<p class="small-note">These are original illustrated avatars for this first version, not fully editable 3D characters.</p>
+
+<div class="studio-heading">Choose your character</div>
+<div class="studio-grid">
+<div>
+<label class="form-label" for="av-gender">Character</label>
+<select id="av-gender">
+<option value="female">Female</option>
+<option value="male">Male</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="av-style">Universe</label>
+<select id="av-style">
+<option value="3d">3D-inspired</option>
+<option value="anime">Anime</option>
+<option value="gaming">Gaming</option>
+<option value="fantasy">Fantasy</option>
+<option value="cyber">Cyberpunk</option>
+<option value="premium">Premium</option>
+</select>
+</div>
+</div>
+
+<div class="studio-heading">Appearance</div>
+<div class="studio-grid">
+<div>
+<label class="form-label" for="av-skin">Skin tone</label>
+<select id="av-skin">
+<option value="#f6d2b8">Light</option>
+<option value="#edbd9d">Warm</option>
+<option value="#d99b75">Medium</option>
+<option value="#a96d50">Tan</option>
+<option value="#70432f">Dark</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="av-hair">Hairstyle</label>
+<select id="av-hair">
+<option value="long">Long hair</option>
+<option value="short">Short hair</option>
+<option value="curly">Curly hair</option>
+<option value="braids">Braids</option>
+<option value="spiky">Spiky</option>
+<option value="bob">Bob cut</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="av-haircolor">Hair color</label>
+<select id="av-haircolor">
+<option value="#24152d">Black</option>
+<option value="#754321">Brown</option>
+<option value="#d5a13b">Blonde</option>
+<option value="#c83b55">Red</option>
+<option value="#9a65d9">Purple</option>
+<option value="#258acb">Blue</option>
+<option value="#e8e8ed">Silver</option>
+<option value="#e77cbb">Pink</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="av-eyes">Eye color</label>
+<select id="av-eyes">
+<option value="#553326">Brown</option>
+<option value="#329c83">Green</option>
+<option value="#438bd4">Blue</option>
+<option value="#8b65bc">Violet</option>
+</select>
+</div>
+</div>
+
+<div class="studio-heading">Outfit & accessories</div>
+<div class="studio-grid">
+<div>
+<label class="form-label" for="av-outfit">Outfit</label>
+<select id="av-outfit">
+<option value="#a23cff">Neon purple</option>
+<option value="#171725">Black gaming</option>
+<option value="#e13b91">Pink fashion</option>
+<option value="#258acb">Cyber blue</option>
+<option value="#d6ad4b">Golden luxury</option>
+<option value="#25875c">Fantasy green</option>
+<option value="#eeeeee">White elegance</option>
+<option value="#bd3535">Red power</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="av-accessory">Accessory</label>
+<select id="av-accessory">
+<option value="none">None</option>
+<option value="glasses">Glasses</option>
+<option value="crown">Crown</option>
+<option value="headphones">Gaming headphones</option>
+<option value="earrings">Earrings</option>
+<option value="mask">Mystery mask</option>
+</select>
+</div>
+</div>
+
+<div class="studio-actions">
+<button class="full-button" onclick="randomAvatar()">🎲 Random look</button>
+<button class="full-button" onclick="resetAvatar()">↺ Reset</button>
+</div>
+<button class="full-button" onclick="saveCustomAvatar()">💾 Save my avatar</button>
+<p class="small-note">Your avatar is saved to your WHAT'S NEXT? profile. You can change it anytime.</p>
+</div>
+
 <hr style="border-color:#342440;margin:20px 0">
 <label class="form-label" for="edit-display">Display name</label>
 <input id="edit-display" maxlength="40" placeholder="Your display name">
@@ -253,12 +372,10 @@ async function signUp(){
   showMessage(french?"Merci de remplir tous les champs.":"Please complete all fields.");
   return;
  }
-
  if(username.length<3||username.length>24||!/^[a-zA-Z0-9_]+$/.test(username)){
   showMessage(french?"Pseudo : 3 à 24 caractères, lettres, chiffres et _ uniquement.":"Username: 3–24 characters, letters, numbers and underscores only.");
   return;
  }
-
  if(password.length<6){
   showMessage(french?"Le mot de passe doit contenir au moins 6 caractères.":"Password must contain at least 6 characters.");
   return;
@@ -270,16 +387,13 @@ async function signUp(){
 
  try{
   const {data,error}=await supabaseClient.auth.signUp({
-   email,
-   password,
+   email,password,
    options:{
     emailRedirectTo:window.location.origin+window.location.pathname,
     data:{username,display_name:username}
    }
   });
-
   if(error)throw error;
-
   if(data.session){
    showMessage(french?"Compte créé avec succès !":"Account created successfully!");
    await handleSignedIn(data.user);
@@ -287,35 +401,28 @@ async function signUp(){
    showMessage(french?"Compte créé ! Vérifie tes e-mails pour confirmer ton adresse.":"Account created! Please check your email to confirm your address.");
   }
  }catch(error){
-  showMessage(error.message|| (french?"Impossible de créer le compte.":"Unable to create account."));
- }finally{
-  button.disabled=false;
- }
+  showMessage(error.message||(french?"Impossible de créer le compte.":"Unable to create account."));
+ }finally{button.disabled=false;}
 }
 
 async function signIn(){
  const email=document.getElementById("auth-email").value.trim();
  const password=document.getElementById("auth-password").value;
-
  if(!email||!password){
   showMessage(french?"Entre ton e-mail et ton mot de passe.":"Enter your email and password.");
   return;
  }
-
  const button=document.getElementById("signin-button");
  button.disabled=true;
  showMessage(french?"Connexion...":"Signing in...");
-
  try{
   const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
   if(error)throw error;
   showMessage(french?"Bienvenue sur WHAT'S NEXT !":"Welcome to WHAT'S NEXT?");
   await handleSignedIn(data.user);
  }catch(error){
-  showMessage(error.message|| (french?"Connexion impossible.":"Unable to sign in."));
- }finally{
-  button.disabled=false;
- }
+  showMessage(error.message||(french?"Connexion impossible.":"Unable to sign in."));
+ }finally{button.disabled=false;}
 }
 
 async function handleSignedIn(user){
@@ -328,35 +435,142 @@ async function handleSignedIn(user){
 
 async function signOut(){
  const {error}=await supabaseClient.auth.signOut();
-
- if(error){
-  alert(error.message);
-  return;
- }
-
+ if(error){alert(error.message);return;}
  currentUser=null;
  currentProfile=null;
+ selectedAvatarUrl=null;
  document.getElementById("auth").style.display="block";
  document.getElementById("account-area").style.display="none";
  showPage("home");
  showMessage(french?"Tu es déconnecté(e).":"You have signed out.");
 }
 
+function getAvatarSettings(){
+ const ids=["av-gender","av-style","av-skin","av-hair","av-haircolor","av-eyes","av-outfit","av-accessory"];
+ const values={};
+ ids.forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)values[id]=el.value;
+ });
+ return values;
+}
+
+function avatarSvg(settings){
+ const gender=settings["av-gender"]||"female";
+ const style=settings["av-style"]||"3d";
+ const skin=settings["av-skin"]||"#d99b75";
+ const hair=settings["av-hair"]||"long";
+ const hairColor=settings["av-haircolor"]||"#24152d";
+ const eyes=settings["av-eyes"]||"#553326";
+ const outfit=settings["av-outfit"]||"#a23cff";
+ const accessory=settings["av-accessory"]||"none";
+
+ const isMale=gender==="male";
+ const hairShapes={
+  long:`<path d="M39 80 Q22 18 80 17 Q138 18 121 82 L116 132 Q105 111 108 74 Q95 51 79 52 Q56 48 47 75 L49 132 Q34 112 39 80" fill="${hairColor}"/>`,
+  short:`<path d="M40 75 Q34 22 80 21 Q127 21 120 76 Q100 48 80 49 Q58 48 40 75" fill="${hairColor}"/>`,
+  curly:`<g fill="${hairColor}"><circle cx="47" cy="47" r="19"/><circle cx="65" cy="28" r="20"/><circle cx="88" cy="27" r="20"/><circle cx="110" cy="45" r="19"/><circle cx="42" cy="67" r="15"/><circle cx="117" cy="67" r="15"/></g>`,
+  braids:`<path d="M40 65 Q31 18 80 19 Q130 18 120 65 L124 145 L109 145 L105 72 Q80 45 54 72 L51 145 L36 145Z" fill="${hairColor}"/><path d="M40 85 L37 140 M120 85 L123 140" stroke="${hairColor}" stroke-width="12" stroke-linecap="round"/>`,
+  spiky:`<path d="M40 68 L28 28 L57 45 L66 14 L82 43 L104 12 L105 47 L133 32 L120 78 Q80 48 40 78Z" fill="${hairColor}"/>`,
+  bob:`<path d="M35 75 Q28 18 80 19 Q132 18 125 75 L116 115 L103 105 L108 68 Q80 48 52 68 L57 105 L44 115Z" fill="${hairColor}"/>`
+ };
+ const hairShape=hairShapes[hair]||hairShapes.long;
+ const bg=style==="cyber"?"#122f4a":style==="fantasy"?"#35204f":style==="anime"?"#48204f":style==="gaming"?"#172d50":style==="premium"?"#49351c":"#42215d";
+ const eyeSize=style==="anime"?5:3.5;
+ const outfitAccent=style==="fantasy"?"#e9c66c":style==="cyber"?"#4cecff":style==="premium"?"#f4d58a":"#ffffff";
+ const faceShape=isMale
+  ?`<path d="M50 62 Q80 36 110 62 L106 100 Q99 120 80 122 Q61 120 54 100Z" fill="${skin}"/>`
+  :`<ellipse cx="80" cy="80" rx="31" ry="39" fill="${skin}"/>`;
+ const accessoryMarkup={
+  glasses:`<g fill="none" stroke="#e8d8ff" stroke-width="4"><rect x="49" y="72" width="25" height="17" rx="6"/><rect x="86" y="72" width="25" height="17" rx="6"/><path d="M74 79 L86 79"/></g>`,
+  crown:`<path d="M49 44 L43 20 L64 35 L80 10 L96 35 L117 20 L111 48Z" fill="#f4c94b" stroke="#fff0a4" stroke-width="3"/>`,
+  headphones:`<path d="M37 77 Q34 18 80 18 Q126 18 123 77" fill="none" stroke="#35e6f4" stroke-width="10"/><rect x="30" y="66" width="18" height="35" rx="7" fill="#35e6f4"/><rect x="112" y="66" width="18" height="35" rx="7" fill="#35e6f4"/>`,
+  earrings:`<g fill="#f7d66b"><circle cx="47" cy="98" r="5"/><circle cx="113" cy="98" r="5"/><path d="M47 103 L47 115 M113 103 L113 115"/></g>`,
+  mask:`<path d="M49 78 Q80 65 111 78 L105 101 Q80 116 55 101Z" fill="#25233c" stroke="#b78bff" stroke-width="3"/>`
+ };
+ const accessorySvg=accessoryMarkup[accessory]||"";
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+ <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${bg}"/><stop offset="1" stop-color="#100d20"/></linearGradient><linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${outfit}"/><stop offset="1" stop-color="#171322"/></linearGradient></defs>
+ <rect width="160" height="160" rx="80" fill="url(#bg)"/>
+ <circle cx="80" cy="80" r="73" fill="none" stroke="${outfitAccent}" stroke-opacity=".25" stroke-width="2"/>
+ <path d="M25 160 Q28 112 80 112 Q132 112 135 160Z" fill="url(#shirt)"/>
+ <path d="M65 112 L80 130 L95 112" fill="none" stroke="${outfitAccent}" stroke-width="4"/>
+ ${hairShape}
+ ${faceShape}
+ <path d="M49 69 Q51 40 80 39 Q108 39 111 69 Q91 52 79 55 Q63 55 49 69" fill="${hairColor}"/>
+ <ellipse cx="67" cy="81" rx="${eyeSize}" ry="${eyeSize+1}" fill="${eyes}"/>
+ <ellipse cx="93" cy="81" rx="${eyeSize}" ry="${eyeSize+1}" fill="${eyes}"/>
+ <path d="M77 91 Q80 95 83 91" fill="none" stroke="#a56b5d" stroke-width="2" stroke-linecap="round"/>
+ <path d="M70 103 Q80 109 90 103" fill="none" stroke="#9e4e67" stroke-width="2.5" stroke-linecap="round"/>
+ ${accessorySvg}
+ <circle cx="25" cy="35" r="3" fill="${outfitAccent}"/><circle cx="133" cy="119" r="4" fill="${outfitAccent}"/>
+ </svg>`;
+ return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+}
+
+function previewAvatar(){
+ const url=avatarSvg(getAvatarSettings());
+ document.getElementById("studio-preview").src=url;
+ document.getElementById("profile-avatar").src=url;
+ selectedAvatarUrl=url;
+}
+
+function randomAvatar(){
+ const choices={
+  "av-gender":["female","male"],
+  "av-style":["3d","anime","gaming","fantasy","cyber","premium"],
+  "av-skin":["#f6d2b8","#edbd9d","#d99b75","#a96d50","#70432f"],
+  "av-hair":["long","short","curly","braids","spiky","bob"],
+  "av-haircolor":["#24152d","#754321","#d5a13b","#c83b55","#9a65d9","#258acb","#e8e8ed","#e77cbb"],
+  "av-eyes":["#553326","#329c83","#438bd4","#8b65bc"],
+  "av-outfit":["#a23cff","#171725","#e13b91","#258acb","#d6ad4b","#25875c","#eeeeee","#bd3535"],
+  "av-accessory":["none","glasses","crown","headphones","earrings","mask"]
+ };
+ Object.entries(choices).forEach(([id,values])=>{
+  document.getElementById(id).value=values[Math.floor(Math.random()*values.length)];
+ });
+ previewAvatar();
+}
+
+function resetAvatar(){
+ document.getElementById("av-gender").value="female";
+ document.getElementById("av-style").value="3d";
+ document.getElementById("av-skin").value="#f6d2b8";
+ document.getElementById("av-hair").value="long";
+ document.getElementById("av-haircolor").value="#24152d";
+ document.getElementById("av-eyes").value="#553326";
+ document.getElementById("av-outfit").value="#a23cff";
+ document.getElementById("av-accessory").value="none";
+ previewAvatar();
+}
+
+async function saveCustomAvatar(){
+ if(!currentUser){
+  toast(french?"Connecte-toi d'abord.":"Please sign in first.");
+  return;
+ }
+ const url=avatarSvg(getAvatarSettings());
+ const {error}=await supabaseClient.from("profiles").update({avatar_url:url}).eq("id",currentUser.id);
+ if(error){
+  toast((french?"Impossible d'enregistrer : ":"Could not save: ")+error.message);
+  return;
+ }
+ selectedAvatarUrl=null;
+ await loadProfile();
+ toast(french?"Ton avatar a été enregistré !":"Your avatar has been saved!");
+}
+
 async function loadProfile(){
  if(!currentUser)return;
-
- const {data,error}=await supabaseClient
-  .from("profiles")
+ const {data,error}=await supabaseClient.from("profiles")
   .select("id,username,display_name,avatar_url,bio,country_code,language,is_private")
-  .eq("id",currentUser.id)
-  .maybeSingle();
+  .eq("id",currentUser.id).maybeSingle();
 
  if(error){
   document.getElementById("profile-status").textContent=french?"Impossible de charger le profil : "+error.message:"Could not load profile: "+error.message;
   updateWelcome();
   return;
  }
-
  if(!data){
   document.getElementById("profile-status").textContent=french?"Ton profil n'est pas encore prêt. Actualise la page.":"Your profile is not ready yet. Please refresh in a moment.";
   updateWelcome();
@@ -368,71 +582,26 @@ async function loadProfile(){
  applyLanguage();
  updateWelcome();
 
- const avatar=data.avatar_url||makeAvatar("3d",data.username||"player");
-
+ const avatar=data.avatar_url||avatarSvg(defaultAvatarSettings());
  document.getElementById("profile-avatar").src=avatar;
+ document.getElementById("studio-preview").src=avatar;
  document.getElementById("profile-display").textContent=data.display_name||data.username||"Player";
  document.getElementById("profile-username").textContent="@"+(data.username||"player");
  document.getElementById("profile-country").textContent=data.country_code||"";
-
  document.getElementById("edit-display").value=data.display_name||"";
  document.getElementById("edit-username").value=data.username||"";
  document.getElementById("edit-bio").value=data.bio||"";
  document.getElementById("edit-country").value=data.country_code||"";
  document.getElementById("edit-language").value=data.language||"en";
-
- document.getElementById("profile-status").textContent=french?"Ton profil est enregistré sur ton compte.":"Your changes are saved to your account.";
+ document.getElementById("profile-status").textContent=french?"Ton profil est enregistré sur ton compte.":"Your profile is saved to your account.";
 }
 
-function makeAvatar(style,seed){
- const colors=style==="3d"
-  ?["#8f42d8","#ff75c8","#ffd2a6"]
-  :["#15c6d8","#5636b8","#ffb84d"];
-
- const hair=style==="3d"?"#342047":"#15152b";
-
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
- <defs>
- <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
- <stop stop-color="${colors[0]}"/>
- <stop offset="1" stop-color="${colors[1]}"/>
- </linearGradient>
- <radialGradient id="skin">
- <stop stop-color="#ffe0c4"/>
- <stop offset="1" stop-color="#d99678"/>
- </radialGradient>
- </defs>
- <rect width="160" height="160" rx="80" fill="url(#bg)"/>
- <circle cx="80" cy="65" r="39" fill="${hair}"/>
- <path d="M43 72 Q38 22 80 25 Q125 25 119 77 L108 62 Q93 43 69 49 Q56 55 43 72" fill="${hair}"/>
- <ellipse cx="80" cy="75" rx="30" ry="36" fill="url(#skin)"/>
- <path d="M50 70 Q51 39 80 40 Q108 40 111 70 Q94 54 78 57 Q63 58 50 70" fill="${hair}"/>
- <ellipse cx="69" cy="76" rx="3.5" ry="4" fill="#34233b"/>
- <ellipse cx="92" cy="76" rx="3.5" ry="4" fill="#34233b"/>
- <path d="M72 94 Q80 101 89 94" fill="none" stroke="#9c4e62" stroke-width="3" stroke-linecap="round"/>
- <path d="M28 160 Q31 112 80 111 Q130 112 133 160" fill="${colors[2]}"/>
- <path d="M53 119 Q80 137 107 119" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="5"/>
- <circle cx="119" cy="38" r="9" fill="#fff" opacity=".35"/>
- </svg>`;
-
- return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
-}
-
-function setupAvatarChoices(){
- document.getElementById("avatar-3d").src=makeAvatar("3d","one");
- document.getElementById("avatar-game").src=makeAvatar("game","two");
-}
-
-function chooseAvatar(style){
- if(!currentUser){
-  toast(french?"Connecte-toi d'abord.":"Please sign in first.");
-  return;
- }
-
- selectedAvatarUrl=makeAvatar(style,currentUser.id);
- document.getElementById("profile-avatar").src=selectedAvatarUrl;
-
- toast(french?"Avatar sélectionné":"Avatar selected");
+function defaultAvatarSettings(){
+ return {
+  "av-gender":"female","av-style":"3d","av-skin":"#f6d2b8",
+  "av-hair":"long","av-haircolor":"#24152d","av-eyes":"#553326",
+  "av-outfit":"#a23cff","av-accessory":"none"
+ };
 }
 
 async function uploadPhoto(){
@@ -440,54 +609,36 @@ async function uploadPhoto(){
   toast(french?"Connecte-toi d'abord.":"Please sign in first.");
   return;
  }
-
  const file=document.getElementById("photo-file").files[0];
-
  if(!file){
   toast(french?"Choisis d'abord une photo.":"Choose a photo first.");
   return;
  }
-
  if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
   toast(french?"Utilise une image JPG, PNG ou WEBP.":"Use a JPG, PNG or WEBP image.");
   return;
  }
-
  if(file.size>5*1024*1024){
   toast(french?"La photo doit faire 5 Mo maximum.":"Your photo must be 5 MB or less.");
   return;
  }
-
  const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
  const path=currentUser.id+"/"+Date.now()+"-"+safeName;
-
  toast(french?"Envoi de la photo...":"Uploading your photo...");
 
- const {error:uploadError}=await supabaseClient
-  .storage
-  .from("profile-photos")
+ const {error:uploadError}=await supabaseClient.storage.from("profile-photos")
   .upload(path,file,{contentType:file.type,upsert:false});
-
  if(uploadError){
   toast((french?"Échec de l'envoi : ":"Upload failed: ")+uploadError.message);
   return;
  }
-
- const {data}=supabaseClient
-  .storage
-  .from("profile-photos")
-  .getPublicUrl(path);
-
- const {error:updateError}=await supabaseClient
-  .from("profiles")
-  .update({avatar_url:data.publicUrl})
-  .eq("id",currentUser.id);
-
+ const {data}=supabaseClient.storage.from("profile-photos").getPublicUrl(path);
+ const {error:updateError}=await supabaseClient.from("profiles")
+  .update({avatar_url:data.publicUrl}).eq("id",currentUser.id);
  if(updateError){
   toast(french?"Photo envoyée, mais profil non actualisé : "+updateError.message:"Photo uploaded but profile update failed: "+updateError.message);
   return;
  }
-
  selectedAvatarUrl=null;
  await loadProfile();
  toast(french?"Photo de profil mise à jour !":"Profile photo updated!");
@@ -498,41 +649,21 @@ async function saveProfile(){
   toast(french?"Connecte-toi d'abord.":"Please sign in first.");
   return;
  }
-
  const username=document.getElementById("edit-username").value.trim();
  const display_name=document.getElementById("edit-display").value.trim();
  const bio=document.getElementById("edit-bio").value.trim();
  const country_code=document.getElementById("edit-country").value;
  const language=document.getElementById("edit-language").value;
-
  if(username.length<3||username.length>24||!/^[a-zA-Z0-9_]+$/.test(username)){
   toast(french?"Le pseudo doit contenir 3 à 24 caractères : lettres, chiffres ou _.":"Username must be 3–24 characters: letters, numbers or _.");
   return;
  }
-
- const update={
-  username,
-  display_name:display_name||null,
-  bio:bio||null,
-  country_code:country_code||null,
-  language
- };
-
- if(selectedAvatarUrl){
-  update.avatar_url=selectedAvatarUrl;
- }
-
- const {error}=await supabaseClient
-  .from("profiles")
-  .update(update)
-  .eq("id",currentUser.id);
-
+ const update={username,display_name:display_name||null,bio:bio||null,country_code:country_code||null,language};
+ const {error}=await supabaseClient.from("profiles").update(update).eq("id",currentUser.id);
  if(error){
   toast((french?"Impossible d'enregistrer : ":"Could not save: ")+error.message);
   return;
  }
-
- selectedAvatarUrl=null;
  french=language==="fr";
  applyLanguage();
  await loadProfile();
@@ -545,7 +676,6 @@ async function openProfile(btn){
   document.getElementById("auth").scrollIntoView({behavior:"smooth"});
   return;
  }
-
  await loadProfile();
  showPage("profile",btn);
 }
@@ -553,15 +683,9 @@ async function openProfile(btn){
 function showPage(id,btn){
  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
  document.getElementById(id).classList.add("active");
-
  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
-
- if(btn){
-  btn.classList.add("active");
- }else if(id==="home"){
-  document.querySelector("nav button").classList.add("active");
- }
-
+ if(btn){btn.classList.add("active");}
+ else if(id==="home"){document.querySelector("nav button").classList.add("active");}
  window.scrollTo(0,0);
 }
 
@@ -596,12 +720,7 @@ const translations={
 "Build your team":"Crée ton équipe",
 "Find your people. Become a team.":"Trouve tes partenaires et forme une équipe.",
 "Explore teams":"Découvrir les équipes",
-"Home":"Accueil",
-"Challenges":"Défis",
-"Battles":"Duels",
-"Teams":"Équipes",
-"Ranking":"Classement",
-"Profile":"Profil",
+"Home":"Accueil","Challenges":"Défis","Battles":"Duels","Teams":"Équipes","Ranking":"Classement","Profile":"Profil",
 "🔥 Daily challenges":"🔥 Défis du jour",
 "Every day is a new opportunity.":"Chaque jour est une nouvelle occasion.",
 "Voice Challenge":"Défi vocal",
@@ -611,81 +730,52 @@ const translations={
 "Share something creative today.":"Partage quelque chose de créatif aujourd'hui.",
 "Personal Challenge":"Défi personnel",
 "Do something outside your comfort zone.":"Sors de ta zone de confort.",
-"⚔️ Battles":"⚔️ Duels",
-"Choose your arena.":"Choisis ton arène.",
-"Music Battle":"Duel musical",
-"Two talents. One stage.":"Deux talents. Une scène.",
-"Enter":"Participer",
-"Creative Battle":"Duel créatif",
+"⚔️ Battles":"⚔️ Duels","Choose your arena.":"Choisis ton arène.",
+"Music Battle":"Duel musical","Two talents. One stage.":"Deux talents. Une scène.",
+"Enter":"Participer","Creative Battle":"Duel créatif",
 "Creativity has no limits.":"La créativité n'a pas de limites.",
 "Global Battle":"Duel mondial",
 "Meet competitors around the world.":"Rencontre des joueurs du monde entier.",
 "👑 Teams & Families":"👑 Équipes & familles",
 "Stronger together.":"Plus forts ensemble.",
-"Team Alpha":"Équipe Alpha",
-"Community team · Demo":"Équipe communautaire · Démo",
-"Join team":"Rejoindre l'équipe",
-"Team Nova":"Équipe Nova",
+"Team Alpha":"Équipe Alpha","Community team · Demo":"Équipe communautaire · Démo",
+"Join team":"Rejoindre l'équipe","Team Nova":"Équipe Nova",
 "Creative team · Demo":"Équipe créative · Démo",
-"Create your own":"Crée la tienne",
-"Build your own community.":"Crée ta propre communauté.",
-"Get started":"Commencer",
-"🏆 Leaderboard":"🏆 Classement",
+"Create your own":"Crée la tienne","Build your own community.":"Crée ta propre communauté.",
+"Get started":"Commencer","🏆 Leaderboard":"🏆 Classement",
 "The global ranking will grow with the community.":"Le classement mondial évoluera avec la communauté.",
-"Rising Star":"Étoile montante",
-"Demo profile":"Profil de démonstration",
-"Creative Soul":"Âme créative",
-"Music Legend":"Légende musicale",
+"Rising Star":"Étoile montante","Demo profile":"Profil de démonstration",
+"Creative Soul":"Âme créative","Music Legend":"Légende musicale",
 "Demo ranking — no real scores yet.":"Classement démo — aucun score réel pour le moment.",
-"My Profile":"Mon profil",
-"Your profile":"Ton profil",
+"My Profile":"Mon profil","Your profile":"Ton profil",
 "Your profile is saved to your account.":"Ton profil est enregistré sur ton compte.",
 "Upload a photo from your phone":"Importer une photo depuis ton téléphone",
-"Use this photo":"Utiliser cette photo",
-"Or choose an avatar":"Ou choisis un avatar",
-"3D-inspired":"Style inspiré de la 3D",
-"Gaming style":"Style gaming",
-"These are original illustrated avatars for this first version, not fully editable 3D characters.":"Ces avatars illustrés sont proposés dans cette première version. Ce ne sont pas encore des personnages 3D entièrement personnalisables.",
-"Display name":"Nom affiché",
-"Your display name":"Ton nom affiché",
-"Username":"Nom d'utilisateur",
-"Bio":"Présentation",
+"Use this photo":"Utiliser cette photo","Save my profile":"Enregistrer mon profil",
+"Display name":"Nom affiché","Your display name":"Ton nom affiché",
+"Username":"Nom d'utilisateur","Bio":"Présentation",
 "Tell the community about you...":"Présente-toi à la communauté...",
-"Country":"Pays",
-"Choose your country":"Choisis ton pays",
-"Morocco":"Maroc",
-"United States":"États-Unis",
-"United Kingdom":"Royaume-Uni",
-"Canada":"Canada",
-"Spain":"Espagne",
-"Italy":"Italie",
-"Switzerland":"Suisse",
-"Belgium":"Belgique",
-"Germany":"Allemagne",
-"Other":"Autre",
-"Language":"Langue",
-"English":"Anglais",
-"Save my profile":"Enregistrer mon profil",
-"Prototype version · Challenges, battles, teams and ranking currently contain demo content.":"Version prototype · Les défis, duels, équipes et classements contiennent actuellement des exemples de démonstration."
+"Country":"Pays","Choose your country":"Choisis ton pays",
+"Morocco":"Maroc","United States":"États-Unis",
+"United Kingdom":"Royaume-Uni","Canada":"Canada","Spain":"Espagne",
+"Italy":"Italie","Switzerland":"Suisse","Belgium":"Belgique",
+"Germany":"Allemagne","Other":"Autre","Language":"Langue",
+"English":"Anglais","Prototype version · Challenges, battles, teams and ranking currently contain demo content.":"Version prototype · Les défis, duels, équipes et classements contiennent actuellement des exemples de démonstration."
 };
 
 function applyLanguage(){
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
  let node;
-
  while((node=walker.nextNode())){
   const original=node.nodeValue;
   const trimmed=original.trim();
   if(!trimmed)continue;
-
-  if(french && translations[trimmed]){
+  if(french&&translations[trimmed]){
    node.nodeValue=original.replace(trimmed,translations[trimmed]);
   }else if(!french){
    const reverse=Object.entries(translations).find(([en,fr])=>fr===trimmed);
    if(reverse)node.nodeValue=original.replace(trimmed,reverse[0]);
   }
  }
-
  const placeholders={
   "auth-username":french?"Choisis un nom d'utilisateur":"Choose a username",
   "auth-email":french?"Ton adresse e-mail":"Your email",
@@ -694,15 +784,12 @@ function applyLanguage(){
   "edit-username":french?"Nom d'utilisateur":"username",
   "edit-bio":french?"Présente-toi à la communauté...":"Tell the community about you..."
  };
-
  Object.entries(placeholders).forEach(([id,value])=>{
   const el=document.getElementById(id);
   if(el)el.placeholder=value;
  });
-
  document.documentElement.lang=french?"fr":"en";
  localStorage.setItem("whatsnext-language",french?"fr":"en");
-
  const langSelect=document.getElementById("edit-language");
  if(langSelect)langSelect.value=french?"fr":"en";
 }
@@ -710,13 +797,9 @@ function applyLanguage(){
 async function toggleLang(){
  french=!french;
  applyLanguage();
-
  if(currentUser){
-  const {error}=await supabaseClient
-   .from("profiles")
-   .update({language:french?"fr":"en"})
-   .eq("id",currentUser.id);
-
+  const {error}=await supabaseClient.from("profiles")
+   .update({language:french?"fr":"en"}).eq("id",currentUser.id);
   if(error){
    toast(french?"Langue modifiée ici, mais pas enregistrée dans le profil.":"Language changed here, but not saved to your profile.");
   }else{
@@ -740,7 +823,6 @@ supabaseClient.auth.onAuthStateChange((event,session)=>{
   updateWelcome();
   setTimeout(()=>loadProfile(),0);
  }
-
  if(event==="SIGNED_OUT"){
   currentUser=null;
   currentProfile=null;
@@ -751,13 +833,15 @@ supabaseClient.auth.onAuthStateChange((event,session)=>{
 
 async function restoreSession(){
  const {data,error}=await supabaseClient.auth.getSession();
- if(!error&&data.session){
-  await handleSignedIn(data.session.user);
- }
+ if(!error&&data.session){await handleSignedIn(data.session.user);}
 }
 
+document.querySelectorAll("#av-gender,#av-style,#av-skin,#av-hair,#av-haircolor,#av-eyes,#av-outfit,#av-accessory").forEach(el=>{
+ el.addEventListener("change",previewAvatar);
+});
+
 french=localStorage.getItem("whatsnext-language")==="fr";
-setupAvatarChoices();
+previewAvatar();
 applyLanguage();
 restoreSession();
 </script>
