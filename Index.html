@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,256 +5,565 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090812">
 <title>WHAT'S NEXT? — Make Life a Game</title>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#090812;color:white;
- font-family:Arial,sans-serif;
- padding-bottom:85px;
-}
-header{
- padding:25px 20px 15px;
- display:flex;justify-content:space-between;
- align-items:center;
-}
-.logo{font-size:23px;font-weight:900;letter-spacing:1px}
-.logo span{color:#d34cff}
-.lang{
- background:#21172f;border:1px solid #7944a1;
- color:white;border-radius:20px;padding:9px 14px;
-}
-.hero{
- margin:12px 18px;padding:28px 20px;
- border-radius:24px;
- background:linear-gradient(140deg,#25113c,#101020 65%,#38104c);
- border:1px solid #68318a;
-}
+body{margin:0;background:#090812;color:white;font-family:Arial,sans-serif;padding-bottom:90px}
+header{padding:22px 18px 14px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:900;letter-spacing:1px}.logo span{color:#d34cff}
+.lang{background:#21172f;border:1px solid #7944a1;color:white;border-radius:20px;padding:9px 14px}
+.hero{margin:12px 18px;padding:28px 20px;border-radius:24px;background:linear-gradient(140deg,#25113c,#101020 65%,#38104c);border:1px solid #68318a}
 .tag{color:#e17aff;font-size:11px;letter-spacing:3px}
 h1{font-size:37px;line-height:1.12;margin:18px 0}
-h1 span{
- background:linear-gradient(90deg,#b45aff,#ff4db8);
- -webkit-background-clip:text;color:transparent;
-}
+h1 span{background:linear-gradient(90deg,#b45aff,#ff4db8);-webkit-background-clip:text;color:transparent}
 .sub{color:#b9aecb;line-height:1.6;font-size:14px}
-.primary{
- border:0;border-radius:13px;padding:14px 20px;
- background:linear-gradient(90deg,#a23cff,#ef42b7);
- color:white;font-weight:bold;font-size:15px;
- margin-top:15px;
-}
-.section{padding:20px}
-.section-title{
- display:flex;justify-content:space-between;
- align-items:center;margin-bottom:14px;
-}
-h2{font-size:19px;margin:0}
+.primary{border:0;border-radius:13px;padding:14px 20px;background:linear-gradient(90deg,#a23cff,#ef42b7);color:white;font-weight:bold;font-size:15px;margin-top:15px}
+.section{padding:20px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+h2{font-size:19px;margin:0 0 10px}h3{margin:12px 0 7px}
 .muted{color:#a69bb5;font-size:12px}
-.stats{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:9px;padding:0 18px;
-}
-.stat{
- background:#171322;border:1px solid #30233e;
- border-radius:15px;padding:15px 7px;text-align:center;
-}
-.stat strong{font-size:23px;color:#df73ff;display:block}
-.stat small{color:#b4a9c1;font-size:11px}
-.cards{display:grid;gap:12px}
-.card{
- background:#171322;border:1px solid #332541;
- border-radius:17px;padding:17px;
-}
-.card-top{display:flex;justify-content:space-between;align-items:center}
-.icon{font-size:25px}
-.pill{
- color:#e99aff;background:#32194a;
- padding:6px 10px;border-radius:20px;font-size:10px;
-}
-.card h3{margin:13px 0 7px;font-size:17px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:0 18px}
+.stat{background:#171322;border:1px solid #30233e;border-radius:15px;padding:15px 7px;text-align:center}
+.stat strong{font-size:23px;color:#df73ff;display:block}.stat small{color:#b4a9c1;font-size:11px}
+.cards{display:grid;gap:12px}.card{background:#171322;border:1px solid #332541;border-radius:17px;padding:17px}
+.card-top{display:flex;justify-content:space-between;align-items:center}.icon{font-size:25px}
+.pill{color:#e99aff;background:#32194a;padding:6px 10px;border-radius:20px;font-size:10px}
 .card p{font-size:13px;color:#b9aec8;line-height:1.5}
-.action{
- background:#281a38;color:#f1c8ff;
- border:1px solid #75439a;border-radius:10px;
- padding:10px 15px;margin-top:8px;font-weight:bold;
-}
-nav{
- position:fixed;bottom:0;left:0;right:0;
- background:#100d19;border-top:1px solid #342440;
- display:flex;justify-content:space-around;
- padding:12px 3px 18px;z-index:10;
-}
-nav button{
- background:none;border:0;color:#a89bb9;
- font-size:10px;display:flex;flex-direction:column;
- align-items:center;gap:5px;
-}
-nav button span{font-size:20px}
-nav button.active{color:#e276ff}
-.page{display:none}
-.page.active{display:block}
-.notice{
- margin:15px 18px;padding:14px;
- background:#21142e;border-radius:12px;
- color:#d8c2e9;font-size:12px;
-}
-.rank{
- display:flex;align-items:center;gap:12px;
- padding:13px 0;border-bottom:1px solid #30243b;
-}
-.rank strong{color:#e27bff;font-size:18px}
-.rank small{display:block;color:#aaa;font-size:11px;margin-top:4px}
-.toast{
- position:fixed;bottom:90px;left:50%;
- transform:translateX(-50%);
- background:#6e2c91;padding:12px 18px;
- border-radius:12px;display:none;z-index:20;
- font-size:13px;white-space:nowrap;
-}
+.action{background:#281a38;color:#f1c8ff;border:1px solid #75439a;border-radius:10px;padding:10px 15px;margin-top:8px;font-weight:bold}
+nav{position:fixed;bottom:0;left:0;right:0;background:#100d19;border-top:1px solid #342440;display:flex;justify-content:space-around;padding:10px 2px 17px;z-index:10}
+nav button{background:none;border:0;color:#a89bb9;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:16%}
+nav button span{font-size:20px}nav button.active{color:#e276ff}
+.page{display:none}.page.active{display:block}
+.notice{margin:15px 18px;padding:14px;background:#21142e;border-radius:12px;color:#d8c2e9;font-size:12px}
+.rank{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #30243b}
+.rank strong{color:#e27bff;font-size:18px}.rank small{display:block;color:#aaa;font-size:11px;margin-top:4px}
+.toast{position:fixed;bottom:94px;left:50%;transform:translateX(-50%);background:#6e2c91;padding:12px 18px;border-radius:12px;display:none;z-index:30;font-size:13px;max-width:90%;text-align:center}
+.auth-box,.panel{max-width:520px;margin:20px auto;padding:22px;background:#151225;border:1px solid #7944a1;border-radius:20px}
+.auth-box p,.panel p{color:#b9aec8;font-size:13px;line-height:1.5}
+input,textarea,select{width:100%;padding:13px;margin:7px 0;border-radius:10px;border:1px solid #51366b;background:#090812;color:white;font-size:15px}
+textarea{min-height:85px;resize:vertical}
+.auth-box button,.full-button{width:100%;padding:14px;margin-top:10px;border:0;border-radius:10px;background:linear-gradient(90deg,#7944a1,#d34cff);color:white;font-weight:bold;font-size:15px}
+button.secondary{background:#281a38;border:1px solid #75439a}
+button:disabled{opacity:.55}
+#auth-message{overflow-wrap:anywhere}
+#account-area{display:none;margin:12px 18px;padding:14px;background:#21142e;border:1px solid #75439a;border-radius:12px}
+#account-area button{background:#281a38;color:white;border:1px solid #75439a;border-radius:9px;padding:9px 14px}
+.profile-head{display:flex;align-items:center;gap:16px;margin:12px 0 20px}
+.avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid #d34cff;background:#21142e}
+.profile-name{font-size:20px;font-weight:bold}.profile-handle{color:#c49ad9;font-size:13px;margin-top:5px}
+.avatar-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}
+.avatar-choice{background:#21172f;border:1px solid #68418a;border-radius:13px;padding:10px;color:white;text-align:center}
+.avatar-choice img{width:74px;height:74px;display:block;margin:0 auto 7px;border-radius:50%}
+.small-note{font-size:11px!important;color:#9f91ae!important}
+.form-label{display:block;color:#d8c2e9;font-size:12px;margin-top:10px}
+.challenge-form{margin-top:12px;padding:14px;background:#100d19;border:1px solid #68418a;border-radius:14px}
+.submission-card{border:1px solid #49315d;background:#100d19;border-radius:13px;padding:12px;margin-top:10px}
+.submission-card img,.submission-card video{width:100%;max-height:340px;object-fit:contain;border-radius:10px;background:#08070d;margin-top:8px}
+.submission-card .caption{white-space:pre-wrap;overflow-wrap:anywhere;color:#e7dced;font-size:13px}
+@media(max-width:560px){.auth-box,.panel{margin:16px 14px;padding:18px}.section{padding:18px}.profile-head{gap:12px}}
 </style>
 </head>
-
 <body>
+<header><div class="logo">WHAT'S <span>NEXT?</span></div><button class="lang" onclick="toggleLang()">FR / EN</button></header>
 
-<header>
- <div class="logo">WHAT'S <span>NEXT?</span></div>
- <button class="lang" onclick="toggleLang()">FR / EN</button>
-</header>
+<section id="auth" class="auth-box">
+<h2>Join WHAT'S NEXT?</h2>
+<p id="auth-intro">Create your account and start playing!</p>
+<input id="auth-username" type="text" placeholder="Choose a username" autocomplete="username">
+<input id="auth-email" type="email" placeholder="Your email" autocomplete="email">
+<input id="auth-password" type="password" placeholder="Your password" autocomplete="new-password">
+<button id="signup-button" onclick="signUp()">Create account</button>
+<button id="signin-button" class="secondary" onclick="signIn()">Sign in</button>
+<p id="auth-message" aria-live="polite"></p>
+</section>
+
+<div id="account-area"><p id="welcome-message">Welcome to WHAT'S NEXT?</p><button onclick="signOut()">Sign out</button></div>
 
 <main id="home" class="page active">
-
- <div class="hero">
-  <div class="tag">YOUR LIFE. YOUR GAME.</div>
-  <h1>Make your life<br>a <span>game.</span></h1>
-  <p class="sub" data-en="Meet people. Take challenges. Compete. Win together."
-     data-fr="Rencontre des gens. Relève des défis. Affronte les autres. Gagne ensemble.">
-   Meet people. Take challenges. Compete. Win together.
-  </p>
-  <button class="primary" onclick="showPage('challenges')"
-   data-en="Explore challenges →" data-fr="Découvrir les défis →">
-   Explore challenges →
-  </button>
- </div>
-
- <div class="stats">
-  <div class="stat"><strong>01</strong><small data-en="Your journey" data-fr="Ton aventure">Your journey</small></div>
-  <div class="stat"><strong>∞</strong><small data-en="Possibilities" data-fr="Possibilités">Possibilities</small></div>
-  <div class="stat"><strong>100%</strong><small data-en="Your game" data-fr="Ton jeu">Your game</small></div>
- </div>
-
- <section class="section">
-  <div class="section-title">
-   <h2 data-en="What's happening?" data-fr="À découvrir">What's happening?</h2>
-   <span class="muted">01 / 04</span>
-  </div>
-  <div class="cards">
-   <div class="card">
-    <div class="card-top"><span class="icon">🔥</span><span class="pill">DAILY</span></div>
-    <h3 data-en="Daily Challenges" data-fr="Défis quotidiens">Daily Challenges</h3>
-    <p data-en="Push yourself and discover what you can do."
-       data-fr="Dépasse-toi et découvre ce dont tu es capable.">Push yourself and discover what you can do.</p>
-    <button class="action" onclick="showPage('challenges')" data-en="Discover" data-fr="Découvrir">Discover</button>
-   </div>
-   <div class="card">
-    <div class="card-top"><span class="icon">⚔️</span><span class="pill">BATTLE</span></div>
-    <h3 data-en="Challenge others" data-fr="Défie les autres">Challenge others</h3>
-    <p data-en="Compete, connect and show your talent."
-       data-fr="Affronte les autres, rencontre-les et montre ton talent.">Compete, connect and show your talent.</p>
-    <button class="action" onclick="showPage('battles')" data-en="Enter battles" data-fr="Voir les battles">Enter battles</button>
-   </div>
-   <div class="card">
-    <div class="card-top"><span class="icon">👑</span><span class="pill">COMMUNITY</span></div>
-    <h3 data-en="Build your team" data-fr="Crée ton équipe">Build your team</h3>
-    <p data-en="Find your people. Become a team."
-       data-fr="Trouve tes partenaires et forme ton équipe.">Find your people. Become a team.</p>
-    <button class="action" onclick="showPage('teams')" data-en="Explore teams" data-fr="Voir les équipes">Explore teams</button>
-   </div>
-  </div>
- </section>
+<div class="hero">
+<div class="tag">YOUR LIFE. YOUR GAME.</div>
+<h1>Make your life<br>a <span>game.</span></h1>
+<p class="sub" data-en="Meet people. Take challenges. Compete. Win together." data-fr="Rencontre des gens. Relève des défis. Affronte les autres. Gagne ensemble.">Meet people. Take challenges. Compete. Win together.</p>
+<button class="primary" onclick="showPage('challenges')" data-en="Explore challenges →" data-fr="Découvrir les défis →">Explore challenges →</button>
+</div>
+<div class="stats">
+<div class="stat"><strong>01</strong><small>Your journey</small></div>
+<div class="stat"><strong>∞</strong><small>Possibilities</small></div>
+<div class="stat"><strong>100%</strong><small>Your game</small></div>
+</div>
+<section class="section">
+<div class="section-title"><h2>What's happening?</h2><span class="muted">01 / 04</span></div>
+<div class="cards">
+<div class="card"><div class="card-top"><span class="icon">🔥</span><span class="pill">DAILY</span></div><h3>Daily Challenges</h3><p>Push yourself and discover what you can do.</p><button class="action" onclick="showPage('challenges')">Discover</button></div>
+<div class="card"><div class="card-top"><span class="icon">⚔️</span><span class="pill">BATTLE</span></div><h3>Challenge others</h3><p>Compete, connect and show your talent.</p><button class="action" onclick="showPage('battles')">Enter battles</button></div>
+<div class="card"><div class="card-top"><span class="icon">👑</span><span class="pill">COMMUNITY</span></div><h3>Build your team</h3><p>Find your people. Become a team.</p><button class="action" onclick="showPage('teams')">Explore teams</button></div>
+</div>
+</section>
 </main>
 
-<section id="challenges" class="page section">
- <h2 data-en="🔥 Daily challenges" data-fr="🔥 Défis quotidiens">🔥 Daily challenges</h2>
- <p class="sub" data-en="Every day is a new opportunity." data-fr="Chaque jour est une nouvelle occasion.">Every day is a new opportunity.</p>
- <div class="cards">
-  <div class="card"><span class="icon">🎤</span><h3>Voice Challenge</h3><p data-en="Sing a song you've never tried before." data-fr="Chante une chanson que tu n'as jamais essayée.">Sing a song you've never tried before.</p><button class="action" onclick="join('Voice Challenge')">Join challenge</button></div>
-  <div class="card"><span class="icon">📸</span><h3>Creative Challenge</h3><p data-en="Share something creative today." data-fr="Partage quelque chose de créatif aujourd'hui.">Share something creative today.</p><button class="action" onclick="join('Creative Challenge')">Join challenge</button></div>
-  <div class="card"><span class="icon">💪</span><h3>Personal Challenge</h3><p data-en="Do something outside your comfort zone." data-fr="Ose faire quelque chose de nouveau.">Do something outside your comfort zone.</p><button class="action" onclick="join('Personal Challenge')">Join challenge</button></div>
- </div>
-</section>
-
-<section id="battles" class="page section">
- <h2 data-en="⚔️ Battles" data-fr="⚔️ Battles">⚔️ Battles</h2>
- <p class="sub" data-en="Choose your arena." data-fr="Choisis ton arène.">Choose your arena.</p>
- <div class="cards">
-  <div class="card"><span class="icon">🎵</span><h3>Music Battle</h3><p data-en="Two talents. One stage." data-fr="Deux talents. Une scène.">Two talents. One stage.</p><button class="action" onclick="join('Music Battle')">Enter</button></div>
-  <div class="card"><span class="icon">🎨</span><h3>Creative Battle</h3><p data-en="Creativity has no limits." data-fr="La créativité n'a pas de limites.">Creativity has no limits.</p><button class="action" onclick="join('Creative Battle')">Enter</button></div>
-  <div class="card"><span class="icon">🌍</span><h3>Global Battle</h3><p data-en="Meet competitors around the world." data-fr="Affronte des participants du monde entier.">Meet competitors around the world.</p><button class="action" onclick="join('Global Battle')">Enter</button></div>
- </div>
-</section>
-
-<section id="teams" class="page section">
- <h2 data-en="👑 Teams & Families" data-fr="👑 Équipes & Familles">👑 Teams & Families</h2>
- <p class="sub" data-en="Stronger together." data-fr="Ensemble, plus forts.">Stronger together.</p>
- <div class="cards">
-  <div class="card"><span class="icon">🛡️</span><h3>Team Alpha</h3><p>Community team · Demo</p><button class="action" onclick="join('Team Alpha')">Join team</button></div>
-  <div class="card"><span class="icon">🌟</span><h3>Team Nova</h3><p>Creative team · Demo</p><button class="action" onclick="join('Team Nova')">Join team</button></div>
-  <div class="card"><span class="icon">🔥</span><h3>Create your own</h3><p data-en="Build your own community." data-fr="Crée ta propre communauté.">Build your own community.</p><button class="action" onclick="join('Create team')">Get started</button></div>
- </div>
-</section>
-
-<section id="ranking" class="page section">
- <h2 data-en="🏆 Leaderboard" data-fr="🏆 Classement">🏆 Leaderboard</h2>
- <p class="sub" data-en="The global ranking will grow with the community." data-fr="Le classement évoluera avec la communauté.">The global ranking will grow with the community.</p>
- <div class="card">
-  <div class="rank"><strong>01</strong><div>Rising Star<small>Demo profile</small></div>⭐</div>
-  <div class="rank"><strong>02</strong><div>Creative Soul<small>Demo profile</small></div>✨</div>
-  <div class="rank"><strong>03</strong><div>Music Legend<small>Demo profile</small></div>🎤</div>
-  <p class="muted">Demo ranking — no real scores yet.</p>
- </div>
-</section>
-
-<div class="notice" data-en="Prototype version · Demo content · No real accounts or competitions yet."
- data-fr="Version prototype · Contenu de démonstration · Pas encore de vrais comptes ni de compétitions.">
- Prototype version · Demo content · No real accounts or competitions yet.
+<main id="challenges" class="page section">
+<h2>🔥 Daily challenges</h2>
+<p class="sub">Every day is a new opportunity.</p>
+<div id="challenge-list" class="cards">
+<div class="card"><span class="icon">🎤</span><h3>Voice Challenge</h3><p>Sing a song you've never tried before.</p><button class="action" onclick="join('Voice Challenge')">Join challenge</button></div>
+<div class="card"><span class="icon">📸</span><h3>Creative Challenge</h3><p>Share something creative today.</p><button class="action" onclick="join('Creative Challenge')">Join challenge</button></div>
+<div class="card"><span class="icon">💪</span><h3>Personal Challenge</h3><p>Do something outside your comfort zone.</p><button class="action" onclick="join('Personal Challenge')">Join challenge</button></div>
 </div>
+</main>
+ <main id="battles" class="page section">
+<h2>⚔️ Battles</h2><p class="sub">Choose your arena.</p>
+<div class="cards">
+<div class="card"><span class="icon">🎵</span><h3>Music Battle</h3><p>Two talents. One stage.</p><button class="action" onclick="join('Music Battle')">Enter</button></div>
+<div class="card"><span class="icon">🎨</span><h3>Creative Battle</h3><p>Creativity has no limits.</p><button class="action" onclick="join('Creative Battle')">Enter</button></div>
+<div class="card"><span class="icon">🌍</span><h3>Global Battle</h3><p>Meet competitors around the world.</p><button class="action" onclick="join('Global Battle')">Enter</button></div>
+</div>
+</main>
+
+<main id="teams" class="page section">
+<h2>👑 Teams & Families</h2><p class="sub">Stronger together.</p>
+<div class="cards">
+<div class="card"><span class="icon">🛡️</span><h3>Team Alpha</h3><p>Community team · Demo</p><button class="action" onclick="join('Team Alpha')">Join team</button></div>
+<div class="card"><span class="icon">🌟</span><h3>Team Nova</h3><p>Creative team · Demo</p><button class="action" onclick="join('Team Nova')">Join team</button></div>
+<div class="card"><span class="icon">🔥</span><h3>Create your own</h3><p>Build your own community.</p><button class="action" onclick="join('Create team')">Get started</button></div>
+</div>
+</main>
+
+<main id="ranking" class="page section">
+<h2>🏆 Leaderboard</h2><p class="sub">The global ranking will grow with the community.</p>
+<div class="card">
+<div class="rank"><strong>01</strong><div>Rising Star<small>Demo profile</small></div>⭐</div>
+<div class="rank"><strong>02</strong><div>Creative Soul<small>Demo profile</small></div>✨</div>
+<div class="rank"><strong>03</strong><div>Music Legend<small>Demo profile</small></div>🎤</div>
+<p class="muted">Demo ranking — no real scores yet.</p>
+</div>
+</main>
+
+<section id="profile" class="page section">
+<div class="panel">
+<h2>My Profile</h2>
+<div class="profile-head">
+<img id="profile-avatar" class="avatar" alt="Profile avatar">
+<div><div id="profile-display" class="profile-name">Your profile</div><div id="profile-username" class="profile-handle">@username</div><p id="profile-country" class="muted"></p></div>
+</div>
+<p id="profile-status">Your profile is saved to your account.</p>
+<label class="form-label" for="photo-file">Upload a photo from your phone</label>
+<input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp">
+<button class="full-button" onclick="uploadPhoto()">Use this photo</button>
+<h3>Or choose an avatar</h3>
+<div class="avatar-options">
+<button class="avatar-choice" onclick="chooseAvatar('3d')"><img id="avatar-3d" alt="3D inspired avatar">3D-inspired</button>
+<button class="avatar-choice" onclick="chooseAvatar('game')"><img id="avatar-game" alt="Gaming avatar">Gaming style</button>
+</div>
+<p class="small-note">These are original illustrated avatars for this first version, not fully editable 3D characters.</p>
+<hr style="border-color:#342440;margin:20px 0">
+<label class="form-label" for="edit-display">Display name</label><input id="edit-display" maxlength="40" placeholder="Your display name">
+<label class="form-label" for="edit-username">Username</label><input id="edit-username" maxlength="24" placeholder="username">
+<label class="form-label" for="edit-bio">Bio</label><textarea id="edit-bio" maxlength="180" placeholder="Tell the community about you..."></textarea>
+<label class="form-label" for="edit-country">Country</label>
+<select id="edit-country">
+<option value="">Choose your country</option><option value="FR">France</option><option value="MA">Morocco</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="CA">Canada</option><option value="ES">Spain</option><option value="IT">Italy</option><option value="CH">Switzerland</option><option value="BE">Belgium</option><option value="DE">Germany</option><option value="OTHER">Other</option>
+</select>
+<label class="form-label" for="edit-language">Language</label>
+<select id="edit-language"><option value="en">English</option><option value="fr">Français</option></select>
+<button class="full-button" onclick="saveProfile()">Save my profile</button>
+</div>
+</section>
 
 <nav>
- <button class="active" onclick="showPage('home',this)"><span>⌂</span>Home</button>
- <button onclick="showPage('challenges',this)"><span>🔥</span>Challenges</button>
- <button onclick="showPage('battles',this)"><span>⚔️</span>Battles</button>
- <button onclick="showPage('teams',this)"><span>👑</span>Teams</button>
- <button onclick="showPage('ranking',this)"><span>🏆</span>Ranking</button>
+<button class="active" onclick="showPage('home',this)"><span>⌂</span>Home</button>
+<button onclick="showPage('challenges',this)"><span>🔥</span>Challenges</button>
+<button onclick="showPage('battles',this)"><span>⚔️</span>Battles</button>
+<button onclick="showPage('teams',this)"><span>👑</span>Teams</button>
+<button onclick="showPage('ranking',this)"><span>🏆</span>Ranking</button>
+<button onclick="openProfile(this)"><span>👤</span>Profile</button>
 </nav>
-
 <div class="toast" id="toast"></div>
 
 <script>
 let french=false;
+const SUPABASE_URL="https://xpergicecwqpooakccva.supabase.co";
+const SUPABASE_KEY="sb_publishable_Ud-c05uTfGQmdqrGK84Dgg_glr5WFU2";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let currentUser=null;
+let currentProfile=null;
+let selectedAvatarUrl=null;
+
+function showMessage(message){document.getElementById("auth-message").textContent=message;}
+function toast(message){
+ const el=document.getElementById("toast");
+ el.textContent=message;el.style.display="block";
+ setTimeout(()=>el.style.display="none",2800);
+}
+
+async function signUp(){
+ const username=document.getElementById("auth-username").value.trim();
+ const email=document.getElementById("auth-email").value.trim();
+ const password=document.getElementById("auth-password").value;
+ if(!username||!email||!password){showMessage("Please complete all fields.");return;}
+ if(username.length<3||username.length>24||!/^[a-zA-Z0-9_]+$/.test(username)){showMessage("Username: 3–24 characters, letters, numbers and underscores only.");return;}
+ if(password.length<6){showMessage("Password must contain at least 6 characters.");return;}
+ const button=document.getElementById("signup-button");button.disabled=true;showMessage("Creating your account...");
+ try{
+  const {data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:window.location.origin+window.location.pathname,data:{username,display_name:username}}});
+  if(error)throw error;
+  if(data.session){showMessage("Account created successfully!");await handleSignedIn(data.user);}
+  else{showMessage("Account created! Please check your email to confirm your address.");}
+ }catch(error){showMessage(error.message||"Unable to create account.");}
+ finally{button.disabled=false;}
+}
+
+async function signIn(){
+ const email=document.getElementById("auth-email").value.trim();
+ const password=document.getElementById("auth-password").value;
+ if(!email||!password){showMessage("Enter your email and password.");return;}
+ const button=document.getElementById("signin-button");button.disabled=true;showMessage("Signing in...");
+ try{
+  const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+  if(error)throw error;
+  showMessage("Welcome to WHAT'S NEXT?");await handleSignedIn(data.user);
+ }catch(error){showMessage(error.message||"Unable to sign in.");}
+ finally{button.disabled=false;}
+}
+
+async function handleSignedIn(user){
+ currentUser=user;
+ document.getElementById("auth").style.display="none";
+ document.getElementById("account-area").style.display="block";
+ document.getElementById("welcome-message").textContent="Welcome to WHAT'S NEXT?, "+(user.email||"player")+"!";
+ await loadProfile();
+ await loadChallenges();
+}
+
+async function signOut(){
+ const {error}=await supabaseClient.auth.signOut();
+ if(error){alert(error.message);return;}
+ currentUser=null;currentProfile=null;
+ document.getElementById("auth").style.display="block";
+ document.getElementById("account-area").style.display="none";
+ showPage("home");showMessage("You have signed out.");
+}
+
+async function loadProfile(){
+ if(!currentUser)return;
+ const {data,error}=await supabaseClient.from("profiles")
+ .select("id,username,display_name,avatar_url,bio,country_code,language,is_private")
+ .eq("id",currentUser.id).maybeSingle();
+ if(error){document.getElementById("profile-status").textContent="Could not load profile: "+error.message;return;}
+ if(!data){document.getElementById("profile-status").textContent="Your profile is not ready yet. Please refresh in a moment.";return;}
+ currentProfile=data;
+ const avatar=data.avatar_url||makeAvatar("3d",data.username||"player");
+ document.getElementById("profile-avatar").src=avatar;
+ document.getElementById("profile-display").textContent=data.display_name||data.username||"Player";
+ document.getElementById("profile-username").textContent="@"+(data.username||"player");
+ document.getElementById("profile-country").textContent=data.country_code||"";
+ document.getElementById("edit-display").value=data.display_name||"";
+ document.getElementById("edit-username").value=data.username||"";
+ document.getElementById("edit-bio").value=data.bio||"";
+ document.getElementById("edit-country").value=data.country_code||"";
+ document.getElementById("edit-language").value=data.language||"en";
+ document.getElementById("profile-status").textContent="Your changes are saved to your account.";
+}
+
+function makeAvatar(style,seed){
+ const colors=style==="3d"?["#8f42d8","#ff75c8","#ffd2a6"]:["#15c6d8","#5636b8","#ffb84d"];
+ const hair=style==="3d"?"#342047":"#15152b";
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${colors[0]}"/><stop offset="1" stop-color="${colors[1]}"/></linearGradient><radialGradient id="skin"><stop stop-color="#ffe0c4"/><stop offset="1" stop-color="#d99678"/></radialGradient></defs><rect width="160" height="160" rx="80" fill="url(#bg)"/><circle cx="80" cy="65" r="39" fill="${hair}"/><path d="M43 72 Q38 22 80 25 Q125 25 119 77 L108 62 Q93 43 69 49 Q56 55 43 72" fill="${hair}"/><ellipse cx="80" cy="75" rx="30" ry="36" fill="url(#skin)"/><path d="M50 70 Q51 39 80 40 Q108 40 111 70 Q94 54 78 57 Q63 58 50 70" fill="${hair}"/><ellipse cx="69" cy="76" rx="3.5" ry="4" fill="#34233b"/><ellipse cx="92" cy="76" rx="3.5" ry="4" fill="#34233b"/><path d="M72 94 Q80 101 89 94" fill="none" stroke="#9c4e62" stroke-width="3" stroke-linecap="round"/><path d="M28 160 Q31 112 80 111 Q130 112 133 160" fill="${colors[2]}"/><path d="M53 119 Q80 137 107 119" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="5"/><circle cx="119" cy="38" r="9" fill="#fff" opacity=".35"/></svg>`;
+ return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+}
+
+function setupAvatarChoices(){
+ document.getElementById("avatar-3d").src=makeAvatar("3d","one");
+ document.getElementById("avatar-game").src=makeAvatar("game","two");
+}
+
+function chooseAvatar(style){
+ if(!currentUser){toast("Please sign in first.");return;}
+ selectedAvatarUrl=makeAvatar(style,currentUser.id);
+ document.getElementById("profile-avatar").src=selectedAvatarUrl;
+ toast(style==="3d"?"3D-inspired avatar selected":"Gaming avatar selected");
+}
+
+async function uploadPhoto(){
+ if(!currentUser){toast("Please sign in first.");return;}
+ const file=document.getElementById("photo-file").files[0];
+ if(!file){toast("Choose a photo first.");return;}
+ if(!["image/jpeg","image/png","image/webp"].includes(file.type)){toast("Use a JPG, PNG or WEBP image.");return;}
+ if(file.size>5*1024*1024){toast("Your photo must be 5 MB or less.");return;}
+ const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+ const path=currentUser.id+"/"+Date.now()+"-"+safeName;
+ toast("Uploading your photo...");
+ const {error:uploadError}=await supabaseClient.storage.from("profile-photos").upload(path,file,{contentType:file.type,upsert:false});
+ if(uploadError){toast("Upload failed: "+uploadError.message);return;}
+ const {data}=supabaseClient.storage.from("profile-photos").getPublicUrl(path);
+ const {error:updateError}=await supabaseClient.from("profiles").update({avatar_url:data.publicUrl}).eq("id",currentUser.id);
+ if(updateError){toast("Photo uploaded but profile update failed: "+updateError.message);return;}
+ selectedAvatarUrl=null;await loadProfile();toast("Profile photo updated!");
+}
+ async function saveProfile(){
+ if(!currentUser){toast("Please sign in first.");return;}
+ const username=document.getElementById("edit-username").value.trim();
+ const display_name=document.getElementById("edit-display").value.trim();
+ const bio=document.getElementById("edit-bio").value.trim();
+ const country_code=document.getElementById("edit-country").value;
+ const language=document.getElementById("edit-language").value;
+ if(username.length<3||username.length>24||!/^[a-zA-Z0-9_]+$/.test(username)){
+  toast("Username must be 3–24 characters: letters, numbers or _.");
+  return;
+ }
+ const update={username,display_name:display_name||null,bio:bio||null,country_code:country_code||null,language};
+ if(selectedAvatarUrl)update.avatar_url=selectedAvatarUrl;
+ const {error}=await supabaseClient.from("profiles").update(update).eq("id",currentUser.id);
+ if(error){toast("Could not save: "+error.message);return;}
+ selectedAvatarUrl=null;await loadProfile();toast("Your profile has been saved!");
+}
+
+async function openProfile(btn){
+ if(!currentUser){
+  toast("Please sign in to view your profile.");
+  document.getElementById("auth").scrollIntoView({behavior:"smooth"});
+  return;
+ }
+ await loadProfile();showPage("profile",btn);
+}
 
 function showPage(id,btn){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
- if(btn)btn.classList.add('active');
- else document.querySelectorAll('nav button')[0].classList.toggle('active',id==='home');
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ const page=document.getElementById(id);
+ if(page)page.classList.add("active");
+ document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+ if(btn)btn.classList.add("active");
+ else if(id==="home")document.querySelector("nav button").classList.add("active");
  window.scrollTo(0,0);
+ if(id==="challenges")loadChallenges();
+ if(id==="profile"&&currentUser)loadProfile();
 }
 
 function toggleLang(){
  french=!french;
- document.querySelectorAll('[data-en]').forEach(el=>{
-  el.textContent=french?el.dataset.fr:el.dataset.en;
- });
- document.querySelector('html').lang=french?'fr':'en';
+ document.querySelectorAll("[data-en]").forEach(el=>el.textContent=french?el.dataset.fr:el.dataset.en);
+ document.documentElement.lang=french?"fr":"en";
+ document.getElementById("auth-intro").textContent=french?"Crée ton compte et commence à jouer !":"Create your account and start playing!";
+ document.getElementById("auth-username").placeholder=french?"Choisis un nom d'utilisateur":"Choose a username";
+ document.getElementById("auth-email").placeholder=french?"Ton adresse e-mail":"Your email";
+ document.getElementById("auth-password").placeholder=french?"Ton mot de passe":"Your password";
+ document.getElementById("signup-button").textContent=french?"Créer un compte":"Create account";
+ document.getElementById("signin-button").textContent=french?"Se connecter":"Sign in";
 }
 
 function join(name){
- const toast=document.getElementById('toast');
- toast.textContent=french?'Démo : '+name+' sélectionné !':'Demo: '+name+' selected!';
- toast.style.display='block';
- setTimeout(()=>toast.style.display='none',2500);
+ toast((french?"Cette fonctionnalité sera bientôt disponible : ":"This feature is coming soon: ")+name);
 }
+
+function escapeHTML(value){
+ return String(value??"").replace(/[&<>"']/g,char=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[char]));
+}
+
+async function loadChallenges(){
+ const list=document.getElementById("challenge-list");
+ if(!list)return;
+ list.innerHTML='<p class="muted">Loading challenges...</p>';
+
+ const {data,error}=await supabaseClient.from("challenges")
+  .select("id,title,description,category,challenge_type,media_type,base_points,status,created_at")
+  .eq("status","published")
+  .order("created_at",{ascending:false});
+
+ if(error){
+  list.innerHTML='<p class="muted">Could not load challenges: '+escapeHTML(error.message)+'</p>';
+  return;
+ }
+ if(!data||!data.length){
+  list.innerHTML='<p class="muted">No published challenges yet.</p>';
+  return;
+ }
+
+ list.innerHTML=data.map(challenge=>`
+  <article class="card">
+   <div class="card-top">
+    <span class="icon">⚡</span>
+    <span class="pill">${escapeHTML(challenge.category||"CHALLENGE")}</span>
+   </div>
+   <h3>${escapeHTML(challenge.title)}</h3>
+   <p>${escapeHTML(challenge.description||"Take part in this challenge!")}</p>
+   <div class="muted">${Number(challenge.base_points||0)} points</div>
+   <button class="action" onclick="openSubmission('${challenge.id}')">Join challenge</button>
+   <div id="submission-form-${challenge.id}"></div>
+   <div id="submission-feed-${challenge.id}"></div>
+  </article>
+ `).join("");
+
+ for(const challenge of data){
+  await loadApprovedSubmissions(challenge.id);
+ }
+}
+
+function openSubmission(challengeId){
+ if(!currentUser){
+  toast("Please sign in to join a challenge.");
+  document.getElementById("auth").scrollIntoView({behavior:"smooth"});
+  return;
+ }
+ const container=document.getElementById("submission-form-"+challengeId);
+ if(!container)return;
+ if(container.innerHTML){container.innerHTML="";return;}
+
+ container.innerHTML=`
+  <div class="challenge-form">
+   <h3>Submit your entry</h3>
+   <p class="muted">Share a photo or video, or write a caption.</p>
+   <label class="form-label">Photo or video</label>
+   <input id="media-${challengeId}" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm">
+   <label class="form-label">Your caption</label>
+   <textarea id="caption-${challengeId}" maxlength="1000" placeholder="Tell the community about your entry..."></textarea>
+   <button class="full-button" onclick="submitChallenge('${challengeId}')">Send my entry</button>
+   <p id="submit-message-${challengeId}" class="small-note" aria-live="polite"></p>
+  </div>`;
+}
+
+async function submitChallenge(challengeId){
+ if(!currentUser){toast("Please sign in first.");return;}
+ const fileInput=document.getElementById("media-"+challengeId);
+ const captionInput=document.getElementById("caption-"+challengeId);
+ const message=document.getElementById("submit-message-"+challengeId);
+ const file=fileInput?.files?.[0];
+ const caption=captionInput?.value?.trim()||"";
+
+ if(!file&&!caption){
+  message.textContent="Please add a photo, video or caption.";
+  return;
+ }
+ const allowed=["image/jpeg","image/png","image/webp","video/mp4","video/quicktime","video/webm"];
+ if(file&&!allowed.includes(file.type)){
+  message.textContent="Use JPG, PNG, WEBP, MP4, MOV or WEBM.";
+  return;
+ }
+ if(file&&file.size>50*1024*1024){
+  message.textContent="The file must be 50 MB or smaller.";
+  return;
+ }
+
+ message.textContent="Sending your entry...";
+ let mediaUrl=null;
+
+ if(file){
+  const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+  const path=currentUser.id+"/"+Date.now()+"-"+safeName;
+  const {error:uploadError}=await supabaseClient.storage
+   .from("challenge-submissions")
+   .upload(path,file,{upsert:false,contentType:file.type});
+
+  if(uploadError){
+   message.textContent="Upload error: "+uploadError.message;
+   return;
+  }
+  const {data:publicData}=supabaseClient.storage
+   .from("challenge-submissions").getPublicUrl(path);
+  mediaUrl=publicData.publicUrl;
+ }
+
+ const {error}=await supabaseClient.from("submissions").insert({
+  challenge_id:challengeId,
+  media_url:mediaUrl,
+  caption:caption
+ });
+
+ if(error){
+  message.textContent="Could not save your entry: "+error.message;
+  return;
+ }
+
+ message.textContent="Your entry has been submitted for review!";
+ toast("Your participation has been recorded.");
+ document.getElementById("submission-form-"+challengeId).innerHTML="";
+ await loadApprovedSubmissions(challengeId);
+}
+
+async function loadApprovedSubmissions(challengeId){
+ const container=document.getElementById("submission-feed-"+challengeId);
+ if(!container)return;
+
+ const {data,error}=await supabaseClient.from("submissions")
+  .select("id,media_url,caption,created_at")
+  .eq("challenge_id",challengeId)
+  .eq("status","approved")
+  .order("created_at",{ascending:false})
+  .limit(30);
+
+ if(error){
+  container.innerHTML='<p class="small-note">Community entries could not be loaded.</p>';
+  return;
+ }
+ if(!data||!data.length){
+  container.innerHTML='<p class="small-note">No approved entries yet. Be the first!</p>';
+  return;
+ }
+
+ container.innerHTML="<h3>Community entries</h3>"+data.map(entry=>{
+  const media=entry.media_url||"";
+  const isVideo=/\.(mp4|mov|webm)(\?|$)/i.test(media);
+  const mediaHTML=media
+   ?(isVideo
+     ?`<video controls playsinline src="${escapeHTML(media)}"></video>`
+     :`<img loading="lazy" src="${escapeHTML(media)}" alt="Community entry">`)
+   :"";
+
+  return `
+   <div class="submission-card">
+    <div class="muted">Community player · ${new Date(entry.created_at).toLocaleDateString()}</div>
+    ${mediaHTML}
+    ${entry.caption?`<p class="caption">${escapeHTML(entry.caption)}</p>`:""}
+    <button class="action" onclick="reportSubmission('${entry.id}')">Report</button>
+   </div>`;
+ }).join("");
+}
+
+async function reportSubmission(submissionId){
+ if(!currentUser){toast("Please sign in first.");return;}
+ const reason=prompt("Why are you reporting this entry?");
+ if(reason===null)return;
+
+ const {error}=await supabaseClient.from("community_reports").insert({
+  submission_id:submissionId,
+  reporter_id:currentUser.id,
+  reason:reason.trim()
+ });
+
+ if(error){
+  toast(error.message);
+  return;
+ }
+ toast("Report sent. Thank you for helping the community.");
+}
+
+supabaseClient.auth.onAuthStateChange((event,session)=>{
+ if(event==="SIGNED_IN"&&session){
+  currentUser=session.user;
+  document.getElementById("auth").style.display="none";
+  document.getElementById("account-area").style.display="block";
+  document.getElementById("welcome-message").textContent="Welcome to WHAT'S NEXT?!";
+  setTimeout(async()=>{
+   await loadProfile();
+   await loadChallenges();
+  },0);
+ }
+ if(event==="SIGNED_OUT"){
+  currentUser=null;currentProfile=null;
+  document.getElementById("auth").style.display="block";
+  document.getElementById("account-area").style.display="none";
+ }
+});
+
+async function restoreSession(){
+ const {data,error}=await supabaseClient.auth.getSession();
+ if(!error&&data.session){
+  await handleSignedIn(data.session.user);
+ }
+}
+
+setupAvatarChoices();
+restoreSession();
 </script>
 </body>
 </html>
+ 
