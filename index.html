@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090812">
+<title>WHAT'S NEXT? — Make Life a Game</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090812;color:white;
+ font-family:Arial,sans-serif;
+ padding-bottom:85px;
+}
+header{
+ padding:25px 20px 15px;
+ display:flex;justify-content:space-between;
+ align-items:center;
+}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px}
+.logo span{color:#d34cff}
+.lang{
+ background:#21172f;border:1px solid #7944a1;
+ color:white;border-radius:20px;padding:9px 14px;
+}
+.hero{
+ margin:12px 18px;padding:28px 20px;
+ border-radius:24px;
+ background:linear-gradient(140deg,#25113c,#101020 65%,#38104c);
+ border:1px solid #68318a;
+}
+.tag{color:#e17aff;font-size:11px;letter-spacing:3px}
+h1{font-size:37px;line-height:1.12;margin:18px 0}
+h1 span{
+ background:linear-gradient(90deg,#b45aff,#ff4db8);
+ -webkit-background-clip:text;color:transparent;
+}
+.sub{color:#b9aecb;line-height:1.6;font-size:14px}
+.primary{
+ border:0;border-radius:13px;padding:14px 20px;
+ background:linear-gradient(90deg,#a23cff,#ef42b7);
+ color:white;font-weight:bold;font-size:15px;
+ margin-top:15px;
+}
+.section{padding:20px}
+.section-title{
+ display:flex;justify-content:space-between;
+ align-items:center;margin-bottom:14px;
+}
+h2{font-size:19px;margin:0}
+.muted{color:#a69bb5;font-size:12px}
+.stats{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:9px;padding:0 18px;
+}
+.stat{
+ background:#171322;border:1px solid #30233e;
+ border-radius:15px;padding:15px 7px;text-align:center;
+}
+.stat strong{font-size:23px;color:#df73ff;display:block}
+.stat small{color:#b4a9c1;font-size:11px}
+.cards{display:grid;gap:12px}
+.card{
+ background:#171322;border:1px solid #332541;
+ border-radius:17px;padding:17px;
+}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.icon{font-size:25px}
+.pill{
+ color:#e99aff;background:#32194a;
+ padding:6px 10px;border-radius:20px;font-size:10px;
+}
+.card h3{margin:13px 0 7px;font-size:17px}
+.card p{font-size:13px;color:#b9aec8;line-height:1.5}
+.action{
+ background:#281a38;color:#f1c8ff;
+ border:1px solid #75439a;border-radius:10px;
+ padding:10px 15px;margin-top:8px;font-weight:bold;
+}
+nav{
+ position:fixed;bottom:0;left:0;right:0;
+ background:#100d19;border-top:1px solid #342440;
+ display:flex;justify-content:space-around;
+ padding:12px 3px 18px;z-index:10;
+}
+nav button{
+ background:none;border:0;color:#a89bb9;
+ font-size:10px;display:flex;flex-direction:column;
+ align-items:center;gap:5px;
+}
+nav button span{font-size:20px}
+nav button.active{color:#e276ff}
+.page{display:none}
+.page.active{display:block}
+.notice{
+ margin:15px 18px;padding:14px;
+ background:#21142e;border-radius:12px;
+ color:#d8c2e9;font-size:12px;
+}
+.rank{
+ display:flex;align-items:center;gap:12px;
+ padding:13px 0;border-bottom:1px solid #30243b;
+}
+.rank strong{color:#e27bff;font-size:18px}
+.rank small{display:block;color:#aaa;font-size:11px;margin-top:4px}
+.toast{
+ position:fixed;bottom:90px;left:50%;
+ transform:translateX(-50%);
+ background:#6e2c91;padding:12px 18px;
+ border-radius:12px;display:none;z-index:20;
+ font-size:13px;white-space:nowrap;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">WHAT'S <span>NEXT?</span></div>
+ <button class="lang" onclick="toggleLang()">FR / EN</button>
+</header>
+
+<main id="home" class="page active">
+
+ <div class="hero">
+  <div class="tag">YOUR LIFE. YOUR GAME.</div>
+  <h1>Make your life<br>a <span>game.</span></h1>
+  <p class="sub" data-en="Meet people. Take challenges. Compete. Win together."
+     data-fr="Rencontre des gens. Relève des défis. Affronte les autres. Gagne ensemble.">
+   Meet people. Take challenges. Compete. Win together.
+  </p>
+  <button class="primary" onclick="showPage('challenges')"
+   data-en="Explore challenges →" data-fr="Découvrir les défis →">
+   Explore challenges →
+  </button>
+ </div>
+
+ <div class="stats">
+  <div class="stat"><strong>01</strong><small data-en="Your journey" data-fr="Ton aventure">Your journey</small></div>
+  <div class="stat"><strong>∞</strong><small data-en="Possibilities" data-fr="Possibilités">Possibilities</small></div>
+  <div class="stat"><strong>100%</strong><small data-en="Your game" data-fr="Ton jeu">Your game</small></div>
+ </div>
+
+ <section class="section">
+  <div class="section-title">
+   <h2 data-en="What's happening?" data-fr="À découvrir">What's happening?</h2>
+   <span class="muted">01 / 04</span>
+  </div>
+  <div class="cards">
+   <div class="card">
+    <div class="card-top"><span class="icon">🔥</span><span class="pill">DAILY</span></div>
+    <h3 data-en="Daily Challenges" data-fr="Défis quotidiens">Daily Challenges</h3>
+    <p data-en="Push yourself and discover what you can do."
+       data-fr="Dépasse-toi et découvre ce dont tu es capable.">Push yourself and discover what you can do.</p>
+    <button class="action" onclick="showPage('challenges')" data-en="Discover" data-fr="Découvrir">Discover</button>
+   </div>
+   <div class="card">
+    <div class="card-top"><span class="icon">⚔️</span><span class="pill">BATTLE</span></div>
+    <h3 data-en="Challenge others" data-fr="Défie les autres">Challenge others</h3>
+    <p data-en="Compete, connect and show your talent."
+       data-fr="Affronte les autres, rencontre-les et montre ton talent.">Compete, connect and show your talent.</p>
+    <button class="action" onclick="showPage('battles')" data-en="Enter battles" data-fr="Voir les battles">Enter battles</button>
+   </div>
+   <div class="card">
+    <div class="card-top"><span class="icon">👑</span><span class="pill">COMMUNITY</span></div>
+    <h3 data-en="Build your team" data-fr="Crée ton équipe">Build your team</h3>
+    <p data-en="Find your people. Become a team."
+       data-fr="Trouve tes partenaires et forme ton équipe.">Find your people. Become a team.</p>
+    <button class="action" onclick="showPage('teams')" data-en="Explore teams" data-fr="Voir les équipes">Explore teams</button>
+   </div>
+  </div>
+ </section>
+</main>
+
+<section id="challenges" class="page section">
+ <h2 data-en="🔥 Daily challenges" data-fr="🔥 Défis quotidiens">🔥 Daily challenges</h2>
+ <p class="sub" data-en="Every day is a new opportunity." data-fr="Chaque jour est une nouvelle occasion.">Every day is a new opportunity.</p>
+ <div class="cards">
+  <div class="card"><span class="icon">🎤</span><h3>Voice Challenge</h3><p data-en="Sing a song you've never tried before." data-fr="Chante une chanson que tu n'as jamais essayée.">Sing a song you've never tried before.</p><button class="action" onclick="join('Voice Challenge')">Join challenge</button></div>
+  <div class="card"><span class="icon">📸</span><h3>Creative Challenge</h3><p data-en="Share something creative today." data-fr="Partage quelque chose de créatif aujourd'hui.">Share something creative today.</p><button class="action" onclick="join('Creative Challenge')">Join challenge</button></div>
+  <div class="card"><span class="icon">💪</span><h3>Personal Challenge</h3><p data-en="Do something outside your comfort zone." data-fr="Ose faire quelque chose de nouveau.">Do something outside your comfort zone.</p><button class="action" onclick="join('Personal Challenge')">Join challenge</button></div>
+ </div>
+</section>
+
+<section id="battles" class="page section">
+ <h2 data-en="⚔️ Battles" data-fr="⚔️ Battles">⚔️ Battles</h2>
+ <p class="sub" data-en="Choose your arena." data-fr="Choisis ton arène.">Choose your arena.</p>
+ <div class="cards">
+  <div class="card"><span class="icon">🎵</span><h3>Music Battle</h3><p data-en="Two talents. One stage." data-fr="Deux talents. Une scène.">Two talents. One stage.</p><button class="action" onclick="join('Music Battle')">Enter</button></div>
+  <div class="card"><span class="icon">🎨</span><h3>Creative Battle</h3><p data-en="Creativity has no limits." data-fr="La créativité n'a pas de limites.">Creativity has no limits.</p><button class="action" onclick="join('Creative Battle')">Enter</button></div>
+  <div class="card"><span class="icon">🌍</span><h3>Global Battle</h3><p data-en="Meet competitors around the world." data-fr="Affronte des participants du monde entier.">Meet competitors around the world.</p><button class="action" onclick="join('Global Battle')">Enter</button></div>
+ </div>
+</section>
+
+<section id="teams" class="page section">
+ <h2 data-en="👑 Teams & Families" data-fr="👑 Équipes & Familles">👑 Teams & Families</h2>
+ <p class="sub" data-en="Stronger together." data-fr="Ensemble, plus forts.">Stronger together.</p>
+ <div class="cards">
+  <div class="card"><span class="icon">🛡️</span><h3>Team Alpha</h3><p>Community team · Demo</p><button class="action" onclick="join('Team Alpha')">Join team</button></div>
+  <div class="card"><span class="icon">🌟</span><h3>Team Nova</h3><p>Creative team · Demo</p><button class="action" onclick="join('Team Nova')">Join team</button></div>
+  <div class="card"><span class="icon">🔥</span><h3>Create your own</h3><p data-en="Build your own community." data-fr="Crée ta propre communauté.">Build your own community.</p><button class="action" onclick="join('Create team')">Get started</button></div>
+ </div>
+</section>
+
+<section id="ranking" class="page section">
+ <h2 data-en="🏆 Leaderboard" data-fr="🏆 Classement">🏆 Leaderboard</h2>
+ <p class="sub" data-en="The global ranking will grow with the community." data-fr="Le classement évoluera avec la communauté.">The global ranking will grow with the community.</p>
+ <div class="card">
+  <div class="rank"><strong>01</strong><div>Rising Star<small>Demo profile</small></div>⭐</div>
+  <div class="rank"><strong>02</strong><div>Creative Soul<small>Demo profile</small></div>✨</div>
+  <div class="rank"><strong>03</strong><div>Music Legend<small>Demo profile</small></div>🎤</div>
+  <p class="muted">Demo ranking — no real scores yet.</p>
+ </div>
+</section>
+
+<div class="notice" data-en="Prototype version · Demo content · No real accounts or competitions yet."
+ data-fr="Version prototype · Contenu de démonstration · Pas encore de vrais comptes ni de compétitions.">
+ Prototype version · Demo content · No real accounts or competitions yet.
+</div>
+
+<nav>
+ <button class="active" onclick="showPage('home',this)"><span>⌂</span>Home</button>
+ <button onclick="showPage('challenges',this)"><span>🔥</span>Challenges</button>
+ <button onclick="showPage('battles',this)"><span>⚔️</span>Battles</button>
+ <button onclick="showPage('teams',this)"><span>👑</span>Teams</button>
+ <button onclick="showPage('ranking',this)"><span>🏆</span>Ranking</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let french=false;
+
+function showPage(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ else document.querySelectorAll('nav button')[0].classList.toggle('active',id==='home');
+ window.scrollTo(0,0);
+}
+
+function toggleLang(){
+ french=!french;
+ document.querySelectorAll('[data-en]').forEach(el=>{
+  el.textContent=french?el.dataset.fr:el.dataset.en;
+ });
+ document.querySelector('html').lang=french?'fr':'en';
+}
+
+function join(name){
+ const toast=document.getElementById('toast');
+ toast.textContent=french?'Démo : '+name+' sélectionné !':'Demo: '+name+' selected!';
+ toast.style.display='block';
+ setTimeout(()=>toast.style.display='none',2500);
+}
+</script>
+</body>
+</html>
