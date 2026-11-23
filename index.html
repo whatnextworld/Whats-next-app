@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,835 +14,490 @@ header{padding:22px 18px 14px;display:flex;justify-content:space-between;align-i
 .lang{background:#21172f;border:1px solid #7944a1;color:white;border-radius:20px;padding:9px 14px}
 .hero{margin:12px 18px;padding:28px 20px;border-radius:24px;background:linear-gradient(140deg,#25113c,#101020 65%,#38104c);border:1px solid #68318a}
 .tag{color:#e17aff;font-size:11px;letter-spacing:3px}
-h1{font-size:37px;line-height:1.12;margin:18px 0}
-h1 span{background:linear-gradient(90deg,#b45aff,#ff4db8);-webkit-background-clip:text;color:transparent}
+h1{font-size:37px;line-height:1.12;margin:18px 0}h1 span{background:linear-gradient(90deg,#b45aff,#ff4db8);-webkit-background-clip:text;color:transparent}
 .sub{color:#b9aecb;line-height:1.6;font-size:14px}
 .primary{border:0;border-radius:13px;padding:14px 20px;background:linear-gradient(90deg,#a23cff,#ef42b7);color:white;font-weight:bold;font-size:15px;margin-top:15px}
-.section{padding:20px}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-h2{font-size:19px;margin:0 0 10px}h3{margin:12px 0 7px}
-.muted{color:#a69bb5;font-size:12px}
+.section{padding:20px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+h2{font-size:19px;margin:0 0 10px}h3{margin:12px 0 7px}.muted{color:#a69bb5;font-size:12px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:0 18px}
 .stat{background:#171322;border:1px solid #30233e;border-radius:15px;padding:15px 7px;text-align:center}
-.stat strong{font-size:23px;color:#df73ff;display:block}
-.stat small{color:#b4a9c1;font-size:11px}
-.cards{display:grid;gap:12px}
-.card{background:#171322;border:1px solid #332541;border-radius:17px;padding:17px}
-.card-top{display:flex;justify-content:space-between;align-items:center}
-.icon{font-size:25px}
+.stat strong{font-size:23px;color:#df73ff;display:block}.stat small{color:#b4a9c1;font-size:11px}
+.cards{display:grid;gap:12px}.card{background:#171322;border:1px solid #332541;border-radius:17px;padding:17px}
+.card-top{display:flex;justify-content:space-between;align-items:center}.icon{font-size:25px}
 .pill{color:#e99aff;background:#32194a;padding:6px 10px;border-radius:20px;font-size:10px}
 .card p{font-size:13px;color:#b9aec8;line-height:1.5}
 .action{background:#281a38;color:#f1c8ff;border:1px solid #75439a;border-radius:10px;padding:10px 15px;margin-top:8px;font-weight:bold}
 nav{position:fixed;bottom:0;left:0;right:0;background:#100d19;border-top:1px solid #342440;display:flex;justify-content:space-around;padding:10px 2px 17px;z-index:10}
 nav button{background:none;border:0;color:#a89bb9;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:16%}
-nav button span{font-size:20px}
-nav button.active{color:#e276ff}
+nav button span{font-size:20px}nav button.active{color:#e276ff}
 .page{display:none}.page.active{display:block}
 .notice{margin:15px 18px;padding:14px;background:#21142e;border-radius:12px;color:#d8c2e9;font-size:12px}
 .rank{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #30243b}
-.rank strong{color:#e27bff;font-size:18px}
-.rank small{display:block;color:#aaa;font-size:11px;margin-top:4px}
+.rank strong{color:#e27bff;font-size:18px}.rank small{display:block;color:#aaa;font-size:11px;margin-top:4px}
 .toast{position:fixed;bottom:94px;left:50%;transform:translateX(-50%);background:#6e2c91;padding:12px 18px;border-radius:12px;display:none;z-index:30;font-size:13px;max-width:90%;text-align:center}
 .auth-box,.panel{max-width:520px;margin:20px auto;padding:22px;background:#151225;border:1px solid #7944a1;border-radius:20px}
 .auth-box p,.panel p{color:#b9aec8;font-size:13px;line-height:1.5}
 input,textarea,select{width:100%;padding:13px;margin:7px 0;border-radius:10px;border:1px solid #51366b;background:#090812;color:white;font-size:15px}
 textarea{min-height:85px;resize:vertical}
 .auth-box button,.full-button{width:100%;padding:14px;margin-top:10px;border:0;border-radius:10px;background:linear-gradient(90deg,#7944a1,#d34cff);color:white;font-weight:bold;font-size:15px}
-button.secondary{background:#281a38;border:1px solid #75439a}
-button:disabled{opacity:.55}
+button.secondary{background:#281a38;border:1px solid #75439a}button:disabled{opacity:.55}
 #auth-message{overflow-wrap:anywhere}
 #account-area{display:none;margin:12px 18px;padding:14px;background:#21142e;border:1px solid #75439a;border-radius:12px}
 #account-area button{background:#281a38;color:white;border:1px solid #75439a;border-radius:9px;padding:9px 14px}
 .profile-head{display:flex;align-items:center;gap:16px;margin:12px 0 20px}
 .avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid #d34cff;background:#21142e}
-.profile-name{font-size:20px;font-weight:bold}
-.profile-handle{color:#c49ad9;font-size:13px;margin-top:5px}
-.small-note{font-size:11px!important;color:#9f91ae!important}
-.form-label{display:block;color:#d8c2e9;font-size:12px;margin-top:10px}
+.profile-name{font-size:20px;font-weight:bold}.profile-handle{color:#c49ad9;font-size:13px;margin-top:5px}
+.small-note{font-size:11px!important;color:#9f91ae!important}.form-label{display:block;color:#d8c2e9;font-size:12px;margin-top:10px}
 .studio{background:linear-gradient(145deg,#21152f,#11101d);border:1px solid #7944a1;border-radius:18px;padding:16px;margin:16px 0}
 .studio-preview{background:radial-gradient(circle at 50% 35%,#42215d,#151020 70%);border:1px solid #653d80;border-radius:18px;padding:18px;text-align:center;margin-bottom:15px}
 #studio-preview{width:180px;height:180px;max-width:100%;border-radius:50%;border:3px solid #d34cff;object-fit:cover;background:#21142e}
-.studio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.studio-grid>div{min-width:0}
-.studio-grid select{font-size:13px;padding:11px}
-.studio-heading{font-size:14px;color:#e6b4ff;margin:18px 0 7px}
-.avatar-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}
-.gallery-option{background:#21172f;border:1px solid #68418a;border-radius:12px;padding:9px 5px;color:white;font-size:11px}
-.gallery-option img{width:100%;max-width:76px;aspect-ratio:1;object-fit:cover;border-radius:50%;display:block;margin:0 auto 6px}
-.studio-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.studio-actions button{font-size:13px;padding:12px 7px}
+.studio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.studio-grid>div{min-width:0}
+.studio-grid select{font-size:13px;padding:11px}.studio-heading{font-size:14px;color:#e6b4ff;margin:18px 0 7px}
+.studio-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.studio-actions button{font-size:13px;padding:12px 7px}
+.challenge-meta{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.challenge-meta span{font-size:10px;background:#32194a;color:#e9baff;border-radius:20px;padding:5px 9px}
+.submission-card{border:1px solid #49315d;background:#100d19;border-radius:13px;padding:12px;margin-top:10px}
+.submission-card img,.submission-card video{width:100%;max-height:340px;object-fit:contain;border-radius:10px;background:#08070d;margin-top:8px}
+.submission-card .caption{white-space:pre-wrap;overflow-wrap:anywhere;color:#e7dced;font-size:13px}
+.challenge-form{margin-top:12px;padding:14px;background:#100d19;border:1px solid #68418a;border-radius:14px}
+.inline-actions{display:flex;gap:8px;flex-wrap:wrap}.inline-actions button{flex:1}
 @media(max-width:560px){.auth-box,.panel{margin:16px 14px;padding:18px}.section{padding:18px}.profile-head{gap:12px}}
 </style>
 </head>
 <body>
-
-<header>
-<div class="logo">WHAT'S <span>NEXT?</span></div>
-<button class="lang" onclick="toggleLang()">FR / EN</button>
-</header>
+<header><div class="logo">WHAT'S <span>NEXT?</span></div><button class="lang" onclick="toggleLang()">FR / EN</button></header>
 
 <section id="auth" class="auth-box">
-<h2>Join WHAT'S NEXT?</h2>
-<p id="auth-intro">Create your account and start playing!</p>
+<h2>Join WHAT'S NEXT?</h2><p id="auth-intro">Create your account and start playing!</p>
 <input id="auth-username" type="text" placeholder="Choose a username" autocomplete="username">
 <input id="auth-email" type="email" placeholder="Your email" autocomplete="email">
 <input id="auth-password" type="password" placeholder="Your password" autocomplete="new-password">
 <button id="signup-button" onclick="signUp()">Create account</button>
-<button id="signin-button" class="secondary" onclick="signIn()">Sign in</button>
-<p id="auth-message" aria-live="polite"></p>
+<button id="signin-button" class="secondary" onclick="signIn()">Sign in</button><p id="auth-message" aria-live="polite"></p>
 </section>
-
-<div id="account-area">
-<p id="welcome-message">Welcome, Player!</p>
-<button onclick="signOut()">Sign out</button>
-</div>
+<div id="account-area"><p id="welcome-message">Welcome, Player!</p><button onclick="signOut()">Sign out</button></div>
 
 <main id="home" class="page active">
-<div class="hero">
-<div class="tag">YOUR LIFE. YOUR GAME.</div>
-<h1>Make your life<br>a <span>game.</span></h1>
-<p class="sub">Meet people. Take challenges. Compete. Win together.</p>
-<button class="primary" onclick="showPage('challenges')">Explore challenges →</button>
-</div>
+<div class="hero"><div class="tag">YOUR LIFE. YOUR GAME.</div><h1>Make your life<br>a <span>game.</span></h1>
+<p class="sub">Discover challenges, compete with people around the world and turn everyday moments into a game.</p>
+<button class="primary" onclick="showPage('challenges')">Explore challenges</button></div>
 <div class="stats">
-<div class="stat"><strong>01</strong><small>Your journey</small></div>
+<div class="stat"><strong id="stat-challenges">6</strong><small>Challenges</small></div>
+<div class="stat"><strong>🌍</strong><small>One world</small></div>
 <div class="stat"><strong>∞</strong><small>Possibilities</small></div>
-<div class="stat"><strong>100%</strong><small>Your game</small></div>
 </div>
-<section class="section">
-<div class="section-title"><h2>What's happening?</h2><span class="muted">01 / 04</span></div>
-<div class="cards">
-<div class="card"><div class="card-top"><span class="icon">🔥</span><span class="pill">DAILY</span></div><h3>Daily Challenges</h3><p>Push yourself and discover what you can do.</p><button class="action" onclick="showPage('challenges')">Discover</button></div>
-<div class="card"><div class="card-top"><span class="icon">⚔️</span><span class="pill">BATTLE</span></div><h3>Challenge others</h3><p>Compete, connect and show your talent.</p><button class="action" onclick="showPage('battles')">Enter battles</button></div>
-<div class="card"><div class="card-top"><span class="icon">👑</span><span class="pill">COMMUNITY</span></div><h3>Build your team</h3><p>Find your people. Become a team.</p><button class="action" onclick="showPage('teams')">Explore teams</button></div>
-</div>
-</section>
+<div class="section"><div class="section-title"><h2>What's happening?</h2></div><p class="sub">Your next adventure starts here.</p></div>
 </main>
 
-<section id="challenges" class="page section">
-<h2>🔥 Daily challenges</h2>
-<p class="sub">Every day is a new opportunity.</p>
-<div class="cards">
-<div class="card"><span class="icon">🎤</span><h3>Voice Challenge</h3><p>Sing a song you've never tried before.</p><button class="action" onclick="join('Voice Challenge')">Join challenge</button></div>
-<div class="card"><span class="icon">📸</span><h3>Creative Challenge</h3><p>Share something creative today.</p><button class="action" onclick="join('Creative Challenge')">Join challenge</button></div>
-<div class="card"><span class="icon">💪</span><h3>Personal Challenge</h3><p>Do something outside your comfort zone.</p><button class="action" onclick="join('Personal Challenge')">Join challenge</button></div>
+<main id="challenges" class="page">
+<div class="section"><div class="section-title"><h2>Challenges</h2><span class="pill">LIVE</span></div>
+<p class="sub">Choose a challenge, share your talent and get noticed.</p>
+<div id="challenge-list" class="cards"><p class="muted">Loading challenges...</p></div>
 </div>
-</section>
+</main>
+<main id="battles" class="page">
+<div class="section"><h2>Battles</h2><p class="sub">Challenge other players and show what you can do.</p><div class="notice">Battles and head-to-head competitions are coming soon.</div></div>
+</main>
 
-<section id="battles" class="page section">
-<h2>⚔️ Battles</h2>
-<p class="sub">Choose your arena.</p>
-<div class="cards">
-<div class="card"><span class="icon">🎵</span><h3>Music Battle</h3><p>Two talents. One stage.</p><button class="action" onclick="join('Music Battle')">Enter</button></div>
-<div class="card"><span class="icon">🎨</span><h3>Creative Battle</h3><p>Creativity has no limits.</p><button class="action" onclick="join('Creative Battle')">Enter</button></div>
-<div class="card"><span class="icon">🌍</span><h3>Global Battle</h3><p>Meet competitors around the world.</p><button class="action" onclick="join('Global Battle')">Enter</button></div>
-</div>
-</section>
+<main id="teams" class="page">
+<div class="section"><h2>Teams</h2><p class="sub">Join forces, create a team and compete together.</p><div class="notice">Team competitions are coming soon.</div></div>
+</main>
 
-<section id="teams" class="page section">
-<h2>👑 Teams & Families</h2>
-<p class="sub">Stronger together.</p>
-<div class="cards">
-<div class="card"><span class="icon">🛡️</span><h3>Team Alpha</h3><p>Community team · Demo</p><button class="action" onclick="join('Team Alpha')">Join team</button></div>
-<div class="card"><span class="icon">🌟</span><h3>Team Nova</h3><p>Creative team · Demo</p><button class="action" onclick="join('Team Nova')">Join team</button></div>
-<div class="card"><span class="icon">🔥</span><h3>Create your own</h3><p>Build your own community.</p><button class="action" onclick="join('Create team')">Get started</button></div>
-</div>
-</section>
+<main id="ranking" class="page">
+<div class="section"><h2>Global ranking</h2><p class="sub">Discover the players making their mark.</p><div class="notice">The global ranking will appear here as players earn points.</div></div>
+</main>
 
-<section id="ranking" class="page section">
-<h2>🏆 Leaderboard</h2>
-<p class="sub">The global ranking will grow with the community.</p>
-<div class="card">
-<div class="rank"><strong>01</strong><div>Rising Star<small>Demo profile</small></div>⭐</div>
-<div class="rank"><strong>02</strong><div>Creative Soul<small>Demo profile</small></div>✨</div>
-<div class="rank"><strong>03</strong><div>Music Legend<small>Demo profile</small></div>🎤</div>
-<p class="muted">Demo ranking — no real scores yet.</p>
-</div>
-</section>
-
-<section id="profile" class="page section">
+<main id="profile" class="page">
+<div class="section">
+<h2>My profile</h2>
 <div class="panel">
-<h2>My Profile</h2>
 <div class="profile-head">
 <img id="profile-avatar" class="avatar" alt="Profile avatar">
-<div>
-<div id="profile-display" class="profile-name">Your profile</div>
-<div id="profile-username" class="profile-handle">@username</div>
-<p id="profile-country" class="muted"></p>
+<div><div id="profile-name" class="profile-name">Player</div><div id="profile-handle" class="profile-handle">@player</div></div>
 </div>
-</div>
-<p id="profile-status">Your profile is saved to your account.</p>
-
-<label class="form-label" for="photo-file">Upload a photo from your phone</label>
-<input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp">
-<button class="full-button" onclick="uploadPhoto()">Use this photo</button>
+<label class="form-label">Display name</label>
+<input id="edit-display-name" placeholder="Your display name">
+<label class="form-label">Username</label>
+<input id="edit-username" placeholder="Your username">
+<label class="form-label">Bio</label>
+<textarea id="edit-bio" placeholder="Tell the world about yourself"></textarea>
+<label class="form-label">Profile photo</label>
+<input id="profile-photo" type="file" accept="image/png,image/jpeg,image/webp">
+<button class="full-button" onclick="saveProfile()">Save profile</button>
+<p id="profile-message" class="small-note"></p>
 
 <div class="studio">
-<h3>🎨 Avatar Studio</h3>
-<p class="small-note">Create your own character and see your changes instantly.</p>
-
-<div class="studio-preview">
-<img id="studio-preview" alt="Your custom avatar">
-<p class="muted">LIVE CHARACTER PREVIEW</p>
-</div>
-
-<div class="studio-heading">Choose your character</div>
+<h3>Avatar studio</h3>
+<div class="studio-preview"><img id="studio-preview" alt="Avatar preview"></div>
+<label class="form-label">Choose an avatar image</label>
+<input id="studio-photo" type="file" accept="image/png,image/jpeg,image/webp">
+<div class="studio-heading">Avatar style</div>
 <div class="studio-grid">
-<div>
-<label class="form-label" for="av-gender">Character</label>
-<select id="av-gender">
-<option value="female">Female</option>
-<option value="male">Male</option>
-</select>
+<div><label class="form-label">Frame</label><select id="avatar-frame"><option value="3px solid #d34cff">Neon purple</option><option value="3px solid #ff4db8">Pink neon</option><option value="3px solid #38d9ff">Electric blue</option><option value="3px solid #f7c948">Golden</option></select></div>
+<div><label class="form-label">Shape</label><select id="avatar-shape"><option value="50%">Circle</option><option value="22%">Rounded square</option></select></div>
+<div><label class="form-label">Glow</label><select id="avatar-glow"><option value="0 0 18px #d34cff">Purple glow</option><option value="0 0 18px #ff4db8">Pink glow</option><option value="0 0 18px #38d9ff">Blue glow</option><option value="none">No glow</option></select></div>
+<div><label class="form-label">Background</label><select id="avatar-background"><option value="#21142e">Purple</option><option value="#101020">Dark</option><option value="#32112d">Burgundy</option><option value="#102b3a">Blue</option></select></div>
 </div>
-<div>
-<label class="form-label" for="av-style">Universe</label>
-<select id="av-style">
-<option value="3d">3D-inspired</option>
-<option value="anime">Anime</option>
-<option value="gaming">Gaming</option>
-<option value="fantasy">Fantasy</option>
-<option value="cyber">Cyberpunk</option>
-<option value="premium">Premium</option>
-</select>
-</div>
-</div>
-
-<div class="studio-heading">Appearance</div>
-<div class="studio-grid">
-<div>
-<label class="form-label" for="av-skin">Skin tone</label>
-<select id="av-skin">
-<option value="#f6d2b8">Light</option>
-<option value="#edbd9d">Warm</option>
-<option value="#d99b75">Medium</option>
-<option value="#a96d50">Tan</option>
-<option value="#70432f">Dark</option>
-</select>
-</div>
-<div>
-<label class="form-label" for="av-hair">Hairstyle</label>
-<select id="av-hair">
-<option value="long">Long hair</option>
-<option value="short">Short hair</option>
-<option value="curly">Curly hair</option>
-<option value="braids">Braids</option>
-<option value="spiky">Spiky</option>
-<option value="bob">Bob cut</option>
-</select>
-</div>
-<div>
-<label class="form-label" for="av-haircolor">Hair color</label>
-<select id="av-haircolor">
-<option value="#24152d">Black</option>
-<option value="#754321">Brown</option>
-<option value="#d5a13b">Blonde</option>
-<option value="#c83b55">Red</option>
-<option value="#9a65d9">Purple</option>
-<option value="#258acb">Blue</option>
-<option value="#e8e8ed">Silver</option>
-<option value="#e77cbb">Pink</option>
-</select>
-</div>
-<div>
-<label class="form-label" for="av-eyes">Eye color</label>
-<select id="av-eyes">
-<option value="#553326">Brown</option>
-<option value="#329c83">Green</option>
-<option value="#438bd4">Blue</option>
-<option value="#8b65bc">Violet</option>
-</select>
-</div>
-</div>
-
-<div class="studio-heading">Outfit & accessories</div>
-<div class="studio-grid">
-<div>
-<label class="form-label" for="av-outfit">Outfit</label>
-<select id="av-outfit">
-<option value="#a23cff">Neon purple</option>
-<option value="#171725">Black gaming</option>
-<option value="#e13b91">Pink fashion</option>
-<option value="#258acb">Cyber blue</option>
-<option value="#d6ad4b">Golden luxury</option>
-<option value="#25875c">Fantasy green</option>
-<option value="#eeeeee">White elegance</option>
-<option value="#bd3535">Red power</option>
-</select>
-</div>
-<div>
-<label class="form-label" for="av-accessory">Accessory</label>
-<select id="av-accessory">
-<option value="none">None</option>
-<option value="glasses">Glasses</option>
-<option value="crown">Crown</option>
-<option value="headphones">Gaming headphones</option>
-<option value="earrings">Earrings</option>
-<option value="mask">Mystery mask</option>
-</select>
-</div>
-</div>
-
 <div class="studio-actions">
-<button class="full-button" onclick="randomAvatar()">🎲 Random look</button>
-<button class="full-button" onclick="resetAvatar()">↺ Reset</button>
+<button class="action" onclick="previewAvatar()">Preview</button>
+<button class="action" onclick="saveAvatar()">Save avatar</button>
 </div>
-<button class="full-button" onclick="saveCustomAvatar()">💾 Save my avatar</button>
-<p class="small-note">Your avatar is saved to your WHAT'S NEXT? profile. You can change it anytime.</p>
 </div>
-
-<hr style="border-color:#342440;margin:20px 0">
-<label class="form-label" for="edit-display">Display name</label>
-<input id="edit-display" maxlength="40" placeholder="Your display name">
-<label class="form-label" for="edit-username">Username</label>
-<input id="edit-username" maxlength="24" placeholder="username">
-<label class="form-label" for="edit-bio">Bio</label>
-<textarea id="edit-bio" maxlength="180" placeholder="Tell the community about you..."></textarea>
-<label class="form-label" for="edit-country">Country</label>
-<select id="edit-country">
-<option value="">Choose your country</option>
-<option value="FR">France</option>
-<option value="MA">Morocco</option>
-<option value="US">United States</option>
-<option value="GB">United Kingdom</option>
-<option value="CA">Canada</option>
-<option value="ES">Spain</option>
-<option value="IT">Italy</option>
-<option value="CH">Switzerland</option>
-<option value="BE">Belgium</option>
-<option value="DE">Germany</option>
-<option value="OTHER">Other</option>
-</select>
-<label class="form-label" for="edit-language">Language</label>
-<select id="edit-language">
-<option value="en">English</option>
-<option value="fr">Français</option>
-</select>
-<button class="full-button" onclick="saveProfile()">Save my profile</button>
 </div>
-</section>
-
-<div class="notice">Prototype version · Challenges, battles, teams and ranking currently contain demo content.</div>
+</div>
+</main>
 
 <nav>
 <button class="active" onclick="showPage('home',this)"><span>⌂</span>Home</button>
-<button onclick="showPage('challenges',this)"><span>🔥</span>Challenges</button>
+<button onclick="showPage('challenges',this)"><span>⚡</span>Challenges</button>
 <button onclick="showPage('battles',this)"><span>⚔️</span>Battles</button>
-<button onclick="showPage('teams',this)"><span>👑</span>Teams</button>
+<button onclick="showPage('teams',this)"><span>👥</span>Teams</button>
 <button onclick="showPage('ranking',this)"><span>🏆</span>Ranking</button>
-<button onclick="openProfile(this)"><span>👤</span>Profile</button>
+<button onclick="showPage('profile',this)"><span>👤</span>Profile</button>
 </nav>
-
-<div class="toast" id="toast"></div>
+<div id="toast" class="toast"></div>
 
 <script>
-let french=false;
+const SUPABASE_URL = "https://xpergicecwqpooakccva.supabase.co";
+const SUPABASE_KEY = "sb_publishable_Ud-c05uTfGQmdqrGK84Dgg_glr5WFU2";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const SUPABASE_URL="https://xpergicecwqpooakccva.supabase.co";
-const SUPABASE_KEY="sb_publishable_Ud-c05uTfGQmdqrGK84Dgg_glr5WFU2";
-const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let currentUser = null;
+let currentProfile = null;
+let currentLang = "en";
+let selectedChallenge = null;
+let studioImageUrl = null;
 
-let currentUser=null;
-let currentProfile=null;
-let selectedAvatarUrl=null;
-
-function showMessage(message){
- document.getElementById("auth-message").textContent=message;
+function toast(message) {
+ const el = document.getElementById("toast");
+ el.textContent = message;
+ el.style.display = "block";
+ setTimeout(() => el.style.display = "none", 3000);
 }
 
-function toast(message){
- const el=document.getElementById("toast");
- el.textContent=message;
- el.style.display="block";
- setTimeout(()=>el.style.display="none",2800);
-}
-
-function updateWelcome(){
- const username=currentProfile?.username || currentUser?.user_metadata?.username || "Player";
- document.getElementById("welcome-message").textContent=(french?"Bienvenue, ":"Welcome, ")+username+"!";
-}
-
-async function signUp(){
- const username=document.getElementById("auth-username").value.trim();
- const email=document.getElementById("auth-email").value.trim();
- const password=document.getElementById("auth-password").value;
-
- if(!username||!email||!password){
-  showMessage(french?"Merci de remplir tous les champs.":"Please complete all fields.");
-  return;
+function showPage(page, button) {
+ document.querySelectorAll(".page").forEach(el => el.classList.remove("active"));
+ const target = document.getElementById(page);
+ if (target) target.classList.add("active");
+ document.querySelectorAll("nav button").forEach(el => el.classList.remove("active"));
+ if (button) button.classList.add("active");
+ else {
+  const navButton = [...document.querySelectorAll("nav button")].find(el => el.getAttribute("onclick").includes("'" + page + "'"));
+  if (navButton) navButton.classList.add("active");
  }
- if(username.length<3||username.length>24||!/^[a-zA-Z0-9_]+$/.test(username)){
-  showMessage(french?"Pseudo : 3 à 24 caractères, lettres, chiffres et _ uniquement.":"Username: 3–24 characters, letters, numbers and underscores only.");
-  return;
- }
- if(password.length<6){
-  showMessage(french?"Le mot de passe doit contenir au moins 6 caractères.":"Password must contain at least 6 characters.");
-  return;
- }
-
- const button=document.getElementById("signup-button");
- button.disabled=true;
- showMessage(french?"Création du compte...":"Creating your account...");
-
- try{
-  const {data,error}=await supabaseClient.auth.signUp({
-   email,password,
-   options:{
-    emailRedirectTo:window.location.origin+window.location.pathname,
-    data:{username,display_name:username}
-   }
-  });
-  if(error)throw error;
-  if(data.session){
-   showMessage(french?"Compte créé avec succès !":"Account created successfully!");
-   await handleSignedIn(data.user);
-  }else{
-   showMessage(french?"Compte créé ! Vérifie tes e-mails pour confirmer ton adresse.":"Account created! Please check your email to confirm your address.");
-  }
- }catch(error){
-  showMessage(error.message||(french?"Impossible de créer le compte.":"Unable to create account."));
- }finally{button.disabled=false;}
+ if (page === "challenges") loadChallenges();
+ if (page === "profile" && currentUser) loadProfile();
 }
 
-async function signIn(){
- const email=document.getElementById("auth-email").value.trim();
- const password=document.getElementById("auth-password").value;
- if(!email||!password){
-  showMessage(french?"Entre ton e-mail et ton mot de passe.":"Enter your email and password.");
-  return;
+function toggleLang() {
+ currentLang = currentLang === "en" ? "fr" : "en";
+ toast(currentLang === "fr" ? "La version française sera bientôt disponible partout." : "English selected.");
+}
+
+async function signUp() {
+ const username = document.getElementById("auth-username").value.trim();
+ const email = document.getElementById("auth-email").value.trim();
+ const password = document.getElementById("auth-password").value;
+ const message = document.getElementById("auth-message");
+ if (!username || !email || !password) { message.textContent = "Please complete all fields."; return; }
+ if (password.length < 6) { message.textContent = "Password must contain at least 6 characters."; return; }
+ message.textContent = "Creating your account...";
+ const { data, error } = await supabaseClient.auth.signUp({ email, password, options: { data: { username } } });
+ if (error) { message.textContent = error.message; return; }
+ if (data.session) {
+  currentUser = data.user;
+  await ensureProfile(username);
+  updateAuthUI();
+  toast("Welcome to WHAT'S NEXT!");
+ } else {
+  message.textContent = "Account created! Check your email to confirm your account, then sign in.";
  }
- const button=document.getElementById("signin-button");
- button.disabled=true;
- showMessage(french?"Connexion...":"Signing in...");
- try{
-  const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
-  if(error)throw error;
-  showMessage(french?"Bienvenue sur WHAT'S NEXT !":"Welcome to WHAT'S NEXT?");
-  await handleSignedIn(data.user);
- }catch(error){
-  showMessage(error.message||(french?"Connexion impossible.":"Unable to sign in."));
- }finally{button.disabled=false;}
 }
 
-async function handleSignedIn(user){
- currentUser=user;
- document.getElementById("auth").style.display="none";
- document.getElementById("account-area").style.display="block";
- updateWelcome();
- await loadProfile();
+async function signIn() {
+ const email = document.getElementById("auth-email").value.trim();
+ const password = document.getElementById("auth-password").value;
+ const message = document.getElementById("auth-message");
+ if (!email || !password) { message.textContent = "Enter your email and password."; return; }
+ message.textContent = "Signing in...";
+ const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+ if (error) { message.textContent = error.message; return; }
+ currentUser = data.user;
+ await ensureProfile();
+ updateAuthUI();
+ toast("Welcome back!");
 }
 
-async function signOut(){
- const {error}=await supabaseClient.auth.signOut();
- if(error){alert(error.message);return;}
- currentUser=null;
- currentProfile=null;
- selectedAvatarUrl=null;
- document.getElementById("auth").style.display="block";
- document.getElementById("account-area").style.display="none";
+async function signOut() {
+ await supabaseClient.auth.signOut();
+ currentUser = null;
+ currentProfile = null;
+ updateAuthUI();
  showPage("home");
- showMessage(french?"Tu es déconnecté(e).":"You have signed out.");
+ toast("You have signed out.");
 }
 
-function getAvatarSettings(){
- const ids=["av-gender","av-style","av-skin","av-hair","av-haircolor","av-eyes","av-outfit","av-accessory"];
- const values={};
- ids.forEach(id=>{
-  const el=document.getElementById(id);
-  if(el)values[id]=el.value;
- });
- return values;
-}
-
-function avatarSvg(settings){
- const gender=settings["av-gender"]||"female";
- const style=settings["av-style"]||"3d";
- const skin=settings["av-skin"]||"#d99b75";
- const hair=settings["av-hair"]||"long";
- const hairColor=settings["av-haircolor"]||"#24152d";
- const eyes=settings["av-eyes"]||"#553326";
- const outfit=settings["av-outfit"]||"#a23cff";
- const accessory=settings["av-accessory"]||"none";
-
- const isMale=gender==="male";
- const hairShapes={
-  long:`<path d="M39 80 Q22 18 80 17 Q138 18 121 82 L116 132 Q105 111 108 74 Q95 51 79 52 Q56 48 47 75 L49 132 Q34 112 39 80" fill="${hairColor}"/>`,
-  short:`<path d="M40 75 Q34 22 80 21 Q127 21 120 76 Q100 48 80 49 Q58 48 40 75" fill="${hairColor}"/>`,
-  curly:`<g fill="${hairColor}"><circle cx="47" cy="47" r="19"/><circle cx="65" cy="28" r="20"/><circle cx="88" cy="27" r="20"/><circle cx="110" cy="45" r="19"/><circle cx="42" cy="67" r="15"/><circle cx="117" cy="67" r="15"/></g>`,
-  braids:`<path d="M40 65 Q31 18 80 19 Q130 18 120 65 L124 145 L109 145 L105 72 Q80 45 54 72 L51 145 L36 145Z" fill="${hairColor}"/><path d="M40 85 L37 140 M120 85 L123 140" stroke="${hairColor}" stroke-width="12" stroke-linecap="round"/>`,
-  spiky:`<path d="M40 68 L28 28 L57 45 L66 14 L82 43 L104 12 L105 47 L133 32 L120 78 Q80 48 40 78Z" fill="${hairColor}"/>`,
-  bob:`<path d="M35 75 Q28 18 80 19 Q132 18 125 75 L116 115 L103 105 L108 68 Q80 48 52 68 L57 105 L44 115Z" fill="${hairColor}"/>`
+async function ensureProfile(username) {
+ if (!currentUser) return;
+ const { data } = await supabaseClient.from("profiles").select("*").eq("id", currentUser.id).maybeSingle();
+ if (data) { currentProfile = data; return; }
+ const newProfile = {
+  id: currentUser.id,
+  username: username || currentUser.user_metadata?.username || currentUser.email.split("@")[0],
+  display_name: username || currentUser.user_metadata?.username || "Player"
  };
- const hairShape=hairShapes[hair]||hairShapes.long;
- const bg=style==="cyber"?"#122f4a":style==="fantasy"?"#35204f":style==="anime"?"#48204f":style==="gaming"?"#172d50":style==="premium"?"#49351c":"#42215d";
- const eyeSize=style==="anime"?5:3.5;
- const outfitAccent=style==="fantasy"?"#e9c66c":style==="cyber"?"#4cecff":style==="premium"?"#f4d58a":"#ffffff";
- const faceShape=isMale
-  ?`<path d="M50 62 Q80 36 110 62 L106 100 Q99 120 80 122 Q61 120 54 100Z" fill="${skin}"/>`
-  :`<ellipse cx="80" cy="80" rx="31" ry="39" fill="${skin}"/>`;
- const accessoryMarkup={
-  glasses:`<g fill="none" stroke="#e8d8ff" stroke-width="4"><rect x="49" y="72" width="25" height="17" rx="6"/><rect x="86" y="72" width="25" height="17" rx="6"/><path d="M74 79 L86 79"/></g>`,
-  crown:`<path d="M49 44 L43 20 L64 35 L80 10 L96 35 L117 20 L111 48Z" fill="#f4c94b" stroke="#fff0a4" stroke-width="3"/>`,
-  headphones:`<path d="M37 77 Q34 18 80 18 Q126 18 123 77" fill="none" stroke="#35e6f4" stroke-width="10"/><rect x="30" y="66" width="18" height="35" rx="7" fill="#35e6f4"/><rect x="112" y="66" width="18" height="35" rx="7" fill="#35e6f4"/>`,
-  earrings:`<g fill="#f7d66b"><circle cx="47" cy="98" r="5"/><circle cx="113" cy="98" r="5"/><path d="M47 103 L47 115 M113 103 L113 115"/></g>`,
-  mask:`<path d="M49 78 Q80 65 111 78 L105 101 Q80 116 55 101Z" fill="#25233c" stroke="#b78bff" stroke-width="3"/>`
- };
- const accessorySvg=accessoryMarkup[accessory]||"";
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
- <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${bg}"/><stop offset="1" stop-color="#100d20"/></linearGradient><linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${outfit}"/><stop offset="1" stop-color="#171322"/></linearGradient></defs>
- <rect width="160" height="160" rx="80" fill="url(#bg)"/>
- <circle cx="80" cy="80" r="73" fill="none" stroke="${outfitAccent}" stroke-opacity=".25" stroke-width="2"/>
- <path d="M25 160 Q28 112 80 112 Q132 112 135 160Z" fill="url(#shirt)"/>
- <path d="M65 112 L80 130 L95 112" fill="none" stroke="${outfitAccent}" stroke-width="4"/>
- ${hairShape}
- ${faceShape}
- <path d="M49 69 Q51 40 80 39 Q108 39 111 69 Q91 52 79 55 Q63 55 49 69" fill="${hairColor}"/>
- <ellipse cx="67" cy="81" rx="${eyeSize}" ry="${eyeSize+1}" fill="${eyes}"/>
- <ellipse cx="93" cy="81" rx="${eyeSize}" ry="${eyeSize+1}" fill="${eyes}"/>
- <path d="M77 91 Q80 95 83 91" fill="none" stroke="#a56b5d" stroke-width="2" stroke-linecap="round"/>
- <path d="M70 103 Q80 109 90 103" fill="none" stroke="#9e4e67" stroke-width="2.5" stroke-linecap="round"/>
- ${accessorySvg}
- <circle cx="25" cy="35" r="3" fill="${outfitAccent}"/><circle cx="133" cy="119" r="4" fill="${outfitAccent}"/>
- </svg>`;
- return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+ const { data: created, error } = await supabaseClient.from("profiles").insert(newProfile).select().single();
+ if (!error) currentProfile = created;
 }
 
-function previewAvatar(){
- const url=avatarSvg(getAvatarSettings());
- document.getElementById("studio-preview").src=url;
- document.getElementById("profile-avatar").src=url;
- selectedAvatarUrl=url;
+function updateAuthUI() {
+ document.getElementById("auth").style.display = currentUser ? "none" : "block";
+ document.getElementById("account-area").style.display = currentUser ? "block" : "none";
+ if (currentUser) {
+  document.getElementById("welcome-message").textContent = "Welcome, " + (currentProfile?.display_name || currentUser.email) + "!";
+  loadProfile();
+  loadChallenges();
+ }
 }
 
-function randomAvatar(){
- const choices={
-  "av-gender":["female","male"],
-  "av-style":["3d","anime","gaming","fantasy","cyber","premium"],
-  "av-skin":["#f6d2b8","#edbd9d","#d99b75","#a96d50","#70432f"],
-  "av-hair":["long","short","curly","braids","spiky","bob"],
-  "av-haircolor":["#24152d","#754321","#d5a13b","#c83b55","#9a65d9","#258acb","#e8e8ed","#e77cbb"],
-  "av-eyes":["#553326","#329c83","#438bd4","#8b65bc"],
-  "av-outfit":["#a23cff","#171725","#e13b91","#258acb","#d6ad4b","#25875c","#eeeeee","#bd3535"],
-  "av-accessory":["none","glasses","crown","headphones","earrings","mask"]
- };
- Object.entries(choices).forEach(([id,values])=>{
-  document.getElementById(id).value=values[Math.floor(Math.random()*values.length)];
- });
+async function loadProfile() {
+ if (!currentUser) return;
+ const { data, error } = await supabaseClient.from("profiles").select("*").eq("id", currentUser.id).maybeSingle();
+ if (error || !data) return;
+ currentProfile = data;
+ document.getElementById("profile-name").textContent = data.display_name || data.username || "Player";
+ document.getElementById("profile-handle").textContent = "@" + (data.username || "player");
+ document.getElementById("edit-display-name").value = data.display_name || "";
+ document.getElementById("edit-username").value = data.username || "";
+ document.getElementById("edit-bio").value = data.bio || "";
+ const avatar = data.avatar_url || "";
+ document.getElementById("profile-avatar").src = avatar || "https://placehold.co/200x200/21142e/ffffff?text=Player";
+ document.getElementById("studio-preview").src = avatar || "https://placehold.co/200x200/21142e/ffffff?text=Player";
+}
+
+async function saveProfile() {
+ if (!currentUser) { toast("Please sign in first."); return; }
+ const display_name = document.getElementById("edit-display-name").value.trim();
+ const username = document.getElementById("edit-username").value.trim();
+ const bio = document.getElementById("edit-bio").value.trim();
+ if (!username) { toast("Username is required."); return; }
+ const updates = { display_name, username, bio };
+ const file = document.getElementById("profile-photo").files[0];
+ if (file) {
+  if (file.size > 5 * 1024 * 1024) { toast("Photo must be smaller than 5 MB."); return; }
+  const ext = file.name.split(".").pop().toLowerCase();
+  const path = currentUser.id + "/" + Date.now() + "." + ext;
+  const { error: uploadError } = await supabaseClient.storage.from("profile-photos").upload(path, file, { upsert: true });
+  if (uploadError) { toast(uploadError.message); return; }
+  const { data: urlData } = supabaseClient.storage.from("profile-photos").getPublicUrl(path);
+  updates.avatar_url = urlData.publicUrl;
+ }
+ const { data, error } = await supabaseClient.from("profiles").update(updates).eq("id", currentUser.id).select().single();
+ if (error) { toast(error.message); return; }
+ currentProfile = data;
+ await loadProfile();
+ document.getElementById("profile-message").textContent = "Profile saved!";
+ toast("Profile updated!");
+}
+
+function previewAvatar() {
+ const file = document.getElementById("studio-photo").files[0];
+ if (file) {
+  if (studioImageUrl) URL.revokeObjectURL(studioImageUrl);
+  studioImageUrl = URL.createObjectURL(file);
+ }
+ const image = document.getElementById("studio-preview");
+ if (studioImageUrl) image.src = studioImageUrl;
+ image.style.border = document.getElementById("avatar-frame").value;
+ image.style.borderRadius = document.getElementById("avatar-shape").value;
+ image.style.boxShadow = document.getElementById("avatar-glow").value;
+ image.style.background = document.getElementById("avatar-background").value;
+}
+
+async function saveAvatar() {
+ const file = document.getElementById("studio-photo").files[0];
+ if (file) document.getElementById("profile-photo").files = document.getElementById("studio-photo").files;
  previewAvatar();
+ await saveProfile();
+}
+ async function loadChallenges() {
+ const list = document.getElementById("challenge-list");
+ if (!list) return;
+ list.innerHTML = '<p class="muted">Loading challenges...</p>';
+ const { data, error } = await supabaseClient
+  .from("challenges")
+  .select("*")
+  .eq("status", "published")
+  .order("created_at", { ascending: false });
+
+ if (error) {
+  list.innerHTML = '<p class="muted">Unable to load challenges: ' + escapeHTML(error.message) + '</p>';
+  return;
+ }
+ document.getElementById("stat-challenges").textContent = data.length;
+ if (!data.length) {
+  list.innerHTML = '<p class="muted">No challenges published yet.</p>';
+  return;
+ }
+ list.innerHTML = data.map(challenge => `
+  <article class="card">
+   <div class="card-top"><span class="icon">⚡</span><span class="pill">${escapeHTML(challenge.category || "Challenge")}</span></div>
+   <h3>${escapeHTML(challenge.title)}</h3>
+   <p>${escapeHTML(challenge.description || "Take part in this challenge!")}</p>
+   <div class="challenge-meta">
+    <span>${escapeHTML(challenge.challenge_type || "Open challenge")}</span>
+    <span>${Number(challenge.base_points || 0)} points</span>
+   </div>
+   <button class="action" onclick="openSubmission('${challenge.id}')">Join challenge</button>
+   <div id="submission-form-${challenge.id}"></div>
+   <div id="submission-feed-${challenge.id}"></div>
+  </article>
+ `).join("");
+ for (const challenge of data) await loadApprovedSubmissions(challenge.id);
 }
 
-function resetAvatar(){
- document.getElementById("av-gender").value="female";
- document.getElementById("av-style").value="3d";
- document.getElementById("av-skin").value="#f6d2b8";
- document.getElementById("av-hair").value="long";
- document.getElementById("av-haircolor").value="#24152d";
- document.getElementById("av-eyes").value="#553326";
- document.getElementById("av-outfit").value="#a23cff";
- document.getElementById("av-accessory").value="none";
- previewAvatar();
+function escapeHTML(value) {
+ return String(value ?? "").replace(/[&<>"']/g, char => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[char]));
 }
 
-async function saveCustomAvatar(){
- if(!currentUser){
-  toast(french?"Connecte-toi d'abord.":"Please sign in first.");
+function openSubmission(challengeId) {
+ if (!currentUser) {
+  toast("Please sign in to join a challenge.");
+  document.getElementById("auth").scrollIntoView({ behavior: "smooth" });
   return;
  }
- const url=avatarSvg(getAvatarSettings());
- const {error}=await supabaseClient.from("profiles").update({avatar_url:url}).eq("id",currentUser.id);
- if(error){
-  toast((french?"Impossible d'enregistrer : ":"Could not save: ")+error.message);
-  return;
- }
- selectedAvatarUrl=null;
- await loadProfile();
- toast(french?"Ton avatar a été enregistré !":"Your avatar has been saved!");
+ const container = document.getElementById("submission-form-" + challengeId);
+ if (!container) return;
+ if (container.innerHTML) { container.innerHTML = ""; return; }
+ container.innerHTML = `
+  <div class="challenge-form">
+   <h3>Submit your entry</h3>
+   <p class="muted">Upload a photo or video. You can also add a caption.</p>
+   <label class="form-label">Photo or video</label>
+   <input id="media-${challengeId}" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm">
+   <label class="form-label">Caption (optional)</label>
+   <textarea id="caption-${challengeId}" placeholder="Tell us about your entry..."></textarea>
+   <button class="full-button" onclick="submitChallenge('${challengeId}')">Send my entry</button>
+   <p id="submit-message-${challengeId}" class="small-note"></p>
+  </div>`;
 }
 
-async function loadProfile(){
- if(!currentUser)return;
- const {data,error}=await supabaseClient.from("profiles")
-  .select("id,username,display_name,avatar_url,bio,country_code,language,is_private")
-  .eq("id",currentUser.id).maybeSingle();
-
- if(error){
-  document.getElementById("profile-status").textContent=french?"Impossible de charger le profil : "+error.message:"Could not load profile: "+error.message;
-  updateWelcome();
+async function submitChallenge(challengeId) {
+ if (!currentUser) { toast("Please sign in first."); return; }
+ const fileInput = document.getElementById("media-" + challengeId);
+ const captionInput = document.getElementById("caption-" + challengeId);
+ const message = document.getElementById("submit-message-" + challengeId);
+ const file = fileInput?.files?.[0];
+ const caption = captionInput?.value?.trim() || "";
+ if (!file && !caption) {
+  message.textContent = "Add a photo/video or write a caption.";
   return;
  }
- if(!data){
-  document.getElementById("profile-status").textContent=french?"Ton profil n'est pas encore prêt. Actualise la page.":"Your profile is not ready yet. Please refresh in a moment.";
-  updateWelcome();
+ if (file && file.size > 50 * 1024 * 1024) {
+  message.textContent = "The file must be smaller than 50 MB.";
   return;
  }
-
- currentProfile=data;
- french=(data.language||localStorage.getItem("whatsnext-language")||"en")==="fr";
- applyLanguage();
- updateWelcome();
-
- const avatar=data.avatar_url||avatarSvg(defaultAvatarSettings());
- document.getElementById("profile-avatar").src=avatar;
- document.getElementById("studio-preview").src=avatar;
- document.getElementById("profile-display").textContent=data.display_name||data.username||"Player";
- document.getElementById("profile-username").textContent="@"+(data.username||"player");
- document.getElementById("profile-country").textContent=data.country_code||"";
- document.getElementById("edit-display").value=data.display_name||"";
- document.getElementById("edit-username").value=data.username||"";
- document.getElementById("edit-bio").value=data.bio||"";
- document.getElementById("edit-country").value=data.country_code||"";
- document.getElementById("edit-language").value=data.language||"en";
- document.getElementById("profile-status").textContent=french?"Ton profil est enregistré sur ton compte.":"Your profile is saved to your account.";
-}
-
-function defaultAvatarSettings(){
- return {
-  "av-gender":"female","av-style":"3d","av-skin":"#f6d2b8",
-  "av-hair":"long","av-haircolor":"#24152d","av-eyes":"#553326",
-  "av-outfit":"#a23cff","av-accessory":"none"
- };
-}
-
-async function uploadPhoto(){
- if(!currentUser){
-  toast(french?"Connecte-toi d'abord.":"Please sign in first.");
-  return;
- }
- const file=document.getElementById("photo-file").files[0];
- if(!file){
-  toast(french?"Choisis d'abord une photo.":"Choose a photo first.");
-  return;
- }
- if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
-  toast(french?"Utilise une image JPG, PNG ou WEBP.":"Use a JPG, PNG or WEBP image.");
-  return;
- }
- if(file.size>5*1024*1024){
-  toast(french?"La photo doit faire 5 Mo maximum.":"Your photo must be 5 MB or less.");
-  return;
- }
- const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
- const path=currentUser.id+"/"+Date.now()+"-"+safeName;
- toast(french?"Envoi de la photo...":"Uploading your photo...");
-
- const {error:uploadError}=await supabaseClient.storage.from("profile-photos")
-  .upload(path,file,{contentType:file.type,upsert:false});
- if(uploadError){
-  toast((french?"Échec de l'envoi : ":"Upload failed: ")+uploadError.message);
-  return;
- }
- const {data}=supabaseClient.storage.from("profile-photos").getPublicUrl(path);
- const {error:updateError}=await supabaseClient.from("profiles")
-  .update({avatar_url:data.publicUrl}).eq("id",currentUser.id);
- if(updateError){
-  toast(french?"Photo envoyée, mais profil non actualisé : "+updateError.message:"Photo uploaded but profile update failed: "+updateError.message);
-  return;
- }
- selectedAvatarUrl=null;
- await loadProfile();
- toast(french?"Photo de profil mise à jour !":"Profile photo updated!");
-}
-
-async function saveProfile(){
- if(!currentUser){
-  toast(french?"Connecte-toi d'abord.":"Please sign in first.");
-  return;
- }
- const username=document.getElementById("edit-username").value.trim();
- const display_name=document.getElementById("edit-display").value.trim();
- const bio=document.getElementById("edit-bio").value.trim();
- const country_code=document.getElementById("edit-country").value;
- const language=document.getElementById("edit-language").value;
- if(username.length<3||username.length>24||!/^[a-zA-Z0-9_]+$/.test(username)){
-  toast(french?"Le pseudo doit contenir 3 à 24 caractères : lettres, chiffres ou _.":"Username must be 3–24 characters: letters, numbers or _.");
-  return;
- }
- const update={username,display_name:display_name||null,bio:bio||null,country_code:country_code||null,language};
- const {error}=await supabaseClient.from("profiles").update(update).eq("id",currentUser.id);
- if(error){
-  toast((french?"Impossible d'enregistrer : ":"Could not save: ")+error.message);
-  return;
- }
- french=language==="fr";
- applyLanguage();
- await loadProfile();
- toast(french?"Ton profil a été enregistré !":"Your profile has been saved!");
-}
-
-async function openProfile(btn){
- if(!currentUser){
-  toast(french?"Connecte-toi pour voir ton profil.":"Please sign in to view your profile.");
-  document.getElementById("auth").scrollIntoView({behavior:"smooth"});
-  return;
- }
- await loadProfile();
- showPage("profile",btn);
-}
-
-function showPage(id,btn){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
- if(btn){btn.classList.add("active");}
- else if(id==="home"){document.querySelector("nav button").classList.add("active");}
- window.scrollTo(0,0);
-}
-
-const translations={
-"Join WHAT'S NEXT?":"Rejoins WHAT'S NEXT ?",
-"Create your account and start playing!":"Crée ton compte et commence à jouer !",
-"Choose a username":"Choisis un nom d'utilisateur",
-"Your email":"Ton adresse e-mail",
-"Your password":"Ton mot de passe",
-"Create account":"Créer un compte",
-"Sign in":"Se connecter",
-"Sign out":"Se déconnecter",
-"Welcome, Player!":"Bienvenue, joueur !",
-"YOUR LIFE. YOUR GAME.":"TA VIE. TON JEU.",
-"Make your life":"Fais de ta vie",
-"game.":"un jeu.",
-"Meet people. Take challenges. Compete. Win together.":"Rencontre des gens. Relève des défis. Affronte les autres. Gagne ensemble.",
-"Explore challenges →":"Découvrir les défis →",
-"Your journey":"Ton parcours",
-"Possibilities":"Possibilités",
-"Your game":"Ton jeu",
-"What's happening?":"Quoi de neuf ?",
-"DAILY":"QUOTIDIEN",
-"Daily Challenges":"Défis du jour",
-"Push yourself and discover what you can do.":"Dépasse-toi et découvre ce dont tu es capable.",
-"Discover":"Découvrir",
-"BATTLE":"COMBAT",
-"Challenge others":"Défie les autres",
-"Compete, connect and show your talent.":"Affronte les autres, crée des liens et montre ton talent.",
-"Enter battles":"Rejoindre les duels",
-"COMMUNITY":"COMMUNAUTÉ",
-"Build your team":"Crée ton équipe",
-"Find your people. Become a team.":"Trouve tes partenaires et forme une équipe.",
-"Explore teams":"Découvrir les équipes",
-"Home":"Accueil","Challenges":"Défis","Battles":"Duels","Teams":"Équipes","Ranking":"Classement","Profile":"Profil",
-"🔥 Daily challenges":"🔥 Défis du jour",
-"Every day is a new opportunity.":"Chaque jour est une nouvelle occasion.",
-"Voice Challenge":"Défi vocal",
-"Sing a song you've never tried before.":"Chante une chanson que tu n'as jamais essayée.",
-"Join challenge":"Rejoindre le défi",
-"Creative Challenge":"Défi créatif",
-"Share something creative today.":"Partage quelque chose de créatif aujourd'hui.",
-"Personal Challenge":"Défi personnel",
-"Do something outside your comfort zone.":"Sors de ta zone de confort.",
-"⚔️ Battles":"⚔️ Duels","Choose your arena.":"Choisis ton arène.",
-"Music Battle":"Duel musical","Two talents. One stage.":"Deux talents. Une scène.",
-"Enter":"Participer","Creative Battle":"Duel créatif",
-"Creativity has no limits.":"La créativité n'a pas de limites.",
-"Global Battle":"Duel mondial",
-"Meet competitors around the world.":"Rencontre des joueurs du monde entier.",
-"👑 Teams & Families":"👑 Équipes & familles",
-"Stronger together.":"Plus forts ensemble.",
-"Team Alpha":"Équipe Alpha","Community team · Demo":"Équipe communautaire · Démo",
-"Join team":"Rejoindre l'équipe","Team Nova":"Équipe Nova",
-"Creative team · Demo":"Équipe créative · Démo",
-"Create your own":"Crée la tienne","Build your own community.":"Crée ta propre communauté.",
-"Get started":"Commencer","🏆 Leaderboard":"🏆 Classement",
-"The global ranking will grow with the community.":"Le classement mondial évoluera avec la communauté.",
-"Rising Star":"Étoile montante","Demo profile":"Profil de démonstration",
-"Creative Soul":"Âme créative","Music Legend":"Légende musicale",
-"Demo ranking — no real scores yet.":"Classement démo — aucun score réel pour le moment.",
-"My Profile":"Mon profil","Your profile":"Ton profil",
-"Your profile is saved to your account.":"Ton profil est enregistré sur ton compte.",
-"Upload a photo from your phone":"Importer une photo depuis ton téléphone",
-"Use this photo":"Utiliser cette photo","Save my profile":"Enregistrer mon profil",
-"Display name":"Nom affiché","Your display name":"Ton nom affiché",
-"Username":"Nom d'utilisateur","Bio":"Présentation",
-"Tell the community about you...":"Présente-toi à la communauté...",
-"Country":"Pays","Choose your country":"Choisis ton pays",
-"Morocco":"Maroc","United States":"États-Unis",
-"United Kingdom":"Royaume-Uni","Canada":"Canada","Spain":"Espagne",
-"Italy":"Italie","Switzerland":"Suisse","Belgium":"Belgique",
-"Germany":"Allemagne","Other":"Autre","Language":"Langue",
-"English":"Anglais","Prototype version · Challenges, battles, teams and ranking currently contain demo content.":"Version prototype · Les défis, duels, équipes et classements contiennent actuellement des exemples de démonstration."
-};
-
-function applyLanguage(){
- const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
- let node;
- while((node=walker.nextNode())){
-  const original=node.nodeValue;
-  const trimmed=original.trim();
-  if(!trimmed)continue;
-  if(french&&translations[trimmed]){
-   node.nodeValue=original.replace(trimmed,translations[trimmed]);
-  }else if(!french){
-   const reverse=Object.entries(translations).find(([en,fr])=>fr===trimmed);
-   if(reverse)node.nodeValue=original.replace(trimmed,reverse[0]);
+ let mediaUrl = null;
+ message.textContent = "Sending your entry...";
+ if (file) {
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+  const path = currentUser.id + "/" + Date.now() + "-" + safeName;
+  const { error: uploadError } = await supabaseClient.storage
+   .from("challenge-submissions")
+   .upload(path, file, { upsert: false, contentType: file.type });
+  if (uploadError) {
+   message.textContent = uploadError.message;
+   return;
   }
+  const { data: publicData } = supabaseClient.storage
+   .from("challenge-submissions")
+   .getPublicUrl(path);
+  mediaUrl = publicData.publicUrl;
  }
- const placeholders={
-  "auth-username":french?"Choisis un nom d'utilisateur":"Choose a username",
-  "auth-email":french?"Ton adresse e-mail":"Your email",
-  "auth-password":french?"Ton mot de passe":"Your password",
-  "edit-display":french?"Ton nom affiché":"Your display name",
-  "edit-username":french?"Nom d'utilisateur":"username",
-  "edit-bio":french?"Présente-toi à la communauté...":"Tell the community about you..."
- };
- Object.entries(placeholders).forEach(([id,value])=>{
-  const el=document.getElementById(id);
-  if(el)el.placeholder=value;
+ const { error } = await supabaseClient.from("submissions").insert({
+  challenge_id: challengeId,
+  media_url: mediaUrl,
+  caption: caption
  });
- document.documentElement.lang=french?"fr":"en";
- localStorage.setItem("whatsnext-language",french?"fr":"en");
- const langSelect=document.getElementById("edit-language");
- if(langSelect)langSelect.value=french?"fr":"en";
+ if (error) {
+  message.textContent = error.message;
+  return;
+ }
+ message.textContent = "Your entry has been submitted!";
+ toast("Entry submitted!");
+ document.getElementById("submission-form-" + challengeId).innerHTML = "";
+ await loadApprovedSubmissions(challengeId);
 }
 
-async function toggleLang(){
- french=!french;
- applyLanguage();
- if(currentUser){
-  const {error}=await supabaseClient.from("profiles")
-   .update({language:french?"fr":"en"}).eq("id",currentUser.id);
-  if(error){
-   toast(french?"Langue modifiée ici, mais pas enregistrée dans le profil.":"Language changed here, but not saved to your profile.");
-  }else{
-   toast(french?"Langue française activée":"English language enabled");
-  }
- }else{
-  toast(french?"Langue française activée":"English language enabled");
+async function loadApprovedSubmissions(challengeId) {
+ const container = document.getElementById("submission-feed-" + challengeId);
+ if (!container) return;
+ const { data, error } = await supabaseClient
+  .from("submissions")
+  .select("id, media_url, caption, created_at")
+  .eq("challenge_id", challengeId)
+  .eq("status", "approved")
+  .order("created_at", { ascending: false })
+  .limit(30);
+ if (error) {
+  container.innerHTML = '<p class="small-note">Entries could not be loaded.</p>';
+  return;
  }
+ if (!data.length) {
+  container.innerHTML = '<p class="small-note">No public entries yet. Be the first!</p>';
+  return;
+ }
+ container.innerHTML = "<h3>Community entries</h3>" + data.map(entry => {
+  const media = entry.media_url || "";
+  const isVideo = /\.(mp4|mov|webm)(\?|$)/i.test(media);
+  const mediaHTML = media
+   ? (isVideo
+      ? `<video controls playsinline src="${escapeHTML(media)}"></video>`
+      : `<img loading="lazy" src="${escapeHTML(media)}" alt="Community entry">`)
+   : "";
+  return `
+   <div class="submission-card">
+    <div class="muted">Community player · ${new Date(entry.created_at).toLocaleDateString()}</div>
+    ${mediaHTML}
+    ${entry.caption ? `<p class="caption">${escapeHTML(entry.caption)}</p>` : ""}
+    <button class="action" onclick="reportSubmission('${entry.id}')">Report</button>
+   </div>`;
+ }).join("");
 }
 
-function join(name){
- const translated=french?(translations[name]||name):name;
- toast(french?"Démo : "+translated+" sélectionné !":"Demo: "+name+" selected!");
+async function reportSubmission(submissionId) {
+ if (!currentUser) { toast("Please sign in first."); return; }
+ const reason = prompt("Why are you reporting this entry?");
+ if (reason === null) return;
+ const { error } = await supabaseClient.from("community_reports").insert({
+  submission_id: submissionId,
+  reporter_id: currentUser.id,
+  reason: reason.trim()
+ });
+ if (error) {
+  toast(error.message.includes("duplicate") ? "You have already reported this entry." : error.message);
+  return;
+ }
+ toast("Report sent. Thank you for helping keep the community safe.");
 }
 
-supabaseClient.auth.onAuthStateChange((event,session)=>{
- if(event==="SIGNED_IN"&&session){
-  currentUser=session.user;
-  document.getElementById("auth").style.display="none";
-  document.getElementById("account-area").style.display="block";
-  updateWelcome();
-  setTimeout(()=>loadProfile(),0);
- }
- if(event==="SIGNED_OUT"){
-  currentUser=null;
-  currentProfile=null;
-  document.getElementById("auth").style.display="block";
-  document.getElementById("account-area").style.display="none";
- }
+async function initializeApp() {
+ const { data } = await supabaseClient.auth.getSession();
+ currentUser = data.session?.user || null;
+ if (currentUser) await ensureProfile();
+ updateAuthUI();
+}
+
+supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+ currentUser = session?.user || null;
+ if (currentUser) await ensureProfile();
+ else currentProfile = null;
+ updateAuthUI();
 });
 
-async function restoreSession(){
- const {data,error}=await supabaseClient.auth.getSession();
- if(!error&&data.session){await handleSignedIn(data.session.user);}
-}
-
-document.querySelectorAll("#av-gender,#av-style,#av-skin,#av-hair,#av-haircolor,#av-eyes,#av-outfit,#av-accessory").forEach(el=>{
- el.addEventListener("change",previewAvatar);
-});
-
-french=localStorage.getItem("whatsnext-language")==="fr";
-previewAvatar();
-applyLanguage();
-restoreSession();
+initializeApp();
 </script>
 </body>
 </html>
+ 
